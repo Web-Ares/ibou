@@ -1,10 +1,10 @@
 $(function () {
 
-    $.each( $('.main-slider'), function () {
+    $.each( $('.movie-slider'), function () {
 
         new SliderSingle($(this));
 
-    });
+    } );
 
 });
 
@@ -21,10 +21,9 @@ var SliderSingle = function (obj) {
 
             _sliderSwiper = new Swiper(_slider, {
 
-                pagination: $('.swiper-pagination'),
+                pagination: '.swiper-pagination',
                 paginationClickable: true,
-                loop: true,
-                spaceBetween: 30
+                direction: 'vertical'
 
             });
 
