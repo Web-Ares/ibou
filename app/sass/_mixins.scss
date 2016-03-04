@@ -24,3 +24,15 @@
   font-weight: 400;
   font-style: normal;
 }
+
+//transform
+@mixin transform-center() {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+//transition
+@mixin transition( $property ) {
+  -webkit-transition: $property .3s linear;
+  transition: $property .3s linear;
+}
