@@ -1,18 +1,31 @@
-.logo {
+.social {
   position: absolute;
-  top: 38px;
-  left: 28px;
-  width: 52px;
-  height: 60px;
+  top: 0;
+  right: 28px;
 
-  >svg{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 83px;
-    height: 83px;
-    @include transform-center();
-    @include transition(color);
+  >a {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 50px;
+    opacity: 0.3;
+    @include transition( opacity );
+
+    &:hover {
+      opacity: 1;
+    }
+
+    >svg {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      @include transform-center();
+      @include transition(color);
+    }
   }
+
+
 
 }

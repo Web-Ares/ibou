@@ -30,6 +30,10 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+@mixin transform-rotate( $deg ) {
+  -webkit-transform: rotate( $deg + deg );
+  transform: rotate( $deg + deg );
+}
 
 //transition
 @mixin transition( $property ) {
