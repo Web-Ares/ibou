@@ -8,7 +8,7 @@ $(function () {
 
 });
 
-var SliderSingle = function (obj) {
+var SliderSingle = function (obj)   {
 
     //private properties
     var _self = this,

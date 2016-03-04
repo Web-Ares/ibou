@@ -28,7 +28,7 @@ var paths = {
             dist: 'single-project.min.js',
             contains: [
                 'app/js/jquery.main.js',
-                'app/js/jquery.single-project.js'
+                'app/js/jquery.project-gallery.js'
             ]
         }
     ],
