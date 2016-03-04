@@ -23,6 +23,13 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.index.js'
             ]
+        },
+        {
+            dist: 'single-project.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.single-project.js'
+            ]
         }
     ],
     watchScripts: 'app/js/**/*.js',
@@ -92,7 +99,7 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest('dist/fonts'));
 });
 gulp.task('pictures', function() {
-    return gulp.src(paths.images)
+    return gulp.src(paths.pictures)
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/pic'));
 });
