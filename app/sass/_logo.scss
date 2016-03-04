@@ -1,6 +1,7 @@
 .logo {
   position: absolute;
-  top: 38px;
+  z-index: 1;
+  top: 17px;
   left: 28px;
   width: 52px;
   height: 60px;
@@ -11,4 +12,11 @@
     height: 60px;
   }
 
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .logo {
+    top: 38px;
+  }
 }
