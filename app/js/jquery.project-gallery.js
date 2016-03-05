@@ -1,18 +1,19 @@
-"use strict";
-( function(){
+$( function(){
 
     $.each( $( '.project-gallery' ), function(){
-        new ProjectGallery ( $( this ) )
+
+        new ProjectGallery ( $( this ) );
+
     } );
 
-} )();
+} );
 
 var ProjectGallery = function ( obj ) {
 
     var _self = this,
         _obj = obj,
-        _previewWrap = _obj.find( '.project-gallery__preview'),
-        _mainPicWrap = _obj.find( '.project-gallery__main'),
+        _previewWrap = _obj.find( '.project-gallery__preview' ),
+        _mainPicWrap = _obj.find( '.project-gallery__main' ),
         _swiper,
         _perView,
         _window = $( window ),
@@ -45,7 +46,7 @@ var ProjectGallery = function ( obj ) {
                 _perView = 4
             }
 
-            _swiper = new Swiper(_obj, {
+            _swiper = new Swiper( _previewWrap, {
                 slidesPerView: _perView,
                 autoplay:5000,
                 watchSlidesVisibility: true,
@@ -76,14 +77,16 @@ var ProjectGallery = function ( obj ) {
         },
         _updateSwiper = function(){
 
-            _perView.params.slidesPerView = 1;
+            console.log(_previewWrap);
+
+            _swiper.params.slidesPerView = 1;
 
             if ( _windowWidth >= 600 && _windowWidth < 992 ){
-                _perView.params.slidesPerView = 2
+                _swiper.params.slidesPerView = 2
             } else if ( _windowWidth >= 992 && _windowWidth < 1200 ){
-                _perView.params.slidesPerView = 3
+                _swiper.params.slidesPerView = 3
             } else if ( _windowWidth >= 1200 ){
-                _perView.params.slidesPerView = 4
+                _swiper.params.slidesPerView = 4
             }
 
         };
