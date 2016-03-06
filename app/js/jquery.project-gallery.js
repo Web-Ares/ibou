@@ -33,6 +33,8 @@ var ProjectGallery = function ( obj ) {
 
             _prevewItem.on({
                 click: function(){
+                    var curLinkIndex = $( this ).index();
+                    _mainPicWrap[0].bigSizeGallery.slideSwiper( curLinkIndex );
                     return false;
                 }
             })
@@ -42,12 +44,12 @@ var ProjectGallery = function ( obj ) {
 
             _windowWidth = $( window ).width() + _getScrollWidth();
 
-            if ( _windowWidth < 600 ){
-                _perView = 1
-            } else if ( _windowWidth >= 600 && _windowWidth < 992 ){
+            if ( _windowWidth < 480 ){
                 _perView = 2
-            } else if ( _windowWidth >= 992 && _windowWidth < 1200 ){
+            } else if ( _windowWidth >= 480 && _windowWidth < 992 ){
                 _perView = 3
+            } else if ( _windowWidth >= 992 && _windowWidth < 1200 ){
+                _perView = 4
             } else if ( _windowWidth >= 1200 ){
                 _perView = 4
             }
@@ -57,11 +59,11 @@ var ProjectGallery = function ( obj ) {
                 watchSlidesVisibility: true,
                 nextButton: _prevewBtnNext,
                 prevButton: _prevewBtnPrev,
-                speed: 700,
-                onSlideChangeEnd: function(){
-                    var curLinkIndex = _previewWrap.find( '.swiper-slide-active' ).index();
-                    _mainPicWrap[0].bigSizeGallery.slideSwiper( curLinkIndex );
-                }
+                speed: 700
+                //onSlideChangeEnd: function(){
+                //    var curLinkIndex = _previewWrap.find( '.swiper-slide-active' ).index();
+                //    _mainPicWrap[0].bigSizeGallery.slideSwiper( curLinkIndex );
+                //}
             });
 
         },
@@ -89,12 +91,12 @@ var ProjectGallery = function ( obj ) {
         },
         _updateSwiper = function(){
 
-            _swiper.params.slidesPerView = 1;
+            _swiper.params.slidesPerView = 2;
 
-            if ( _windowWidth >= 600 && _windowWidth < 992 ){
-                _swiper.params.slidesPerView = 2
-            } else if ( _windowWidth >= 992 && _windowWidth < 1200 ){
+            if ( _windowWidth >= 480 && _windowWidth < 992 ){
                 _swiper.params.slidesPerView = 3
+            } else if ( _windowWidth >= 992 && _windowWidth < 1200 ){
+                _swiper.params.slidesPerView = 4
             } else if ( _windowWidth >= 1200 ){
                 _swiper.params.slidesPerView = 4
             }

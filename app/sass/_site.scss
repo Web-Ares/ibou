@@ -34,6 +34,18 @@
     }
   }
 
+  &:after {
+    display: block;
+    clear: both;
+    width: 100%;
+    content: '';
+  }
+
+  &:after,
+  &__footer {
+    height: 140px;
+  }
+
   &__footer {
     position: absolute;
     z-index: 2;
@@ -205,6 +217,7 @@
 
     }
   }
+
 }
 
 @media (min-width: $phone-landscape) {
