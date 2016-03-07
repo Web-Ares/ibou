@@ -9,7 +9,7 @@
   &__content {
     position: relative;
     z-index: 2;
-    padding: 90px 0;
+    padding: 0 0 90px;
   }
   &__header {
     position: fixed;
@@ -189,7 +189,9 @@
       }
     }
   }
-
+  &_padding-top {
+    padding-top: 90px;
+  }
 }
 
 @media (min-width: $phone-landscape) {
@@ -237,13 +239,16 @@
       display: none;
     }
     &__content {
-      padding: 140px 0;
+      padding: 0 0 140px;
     }
     &__footer {
       height: 140px;
     }
     &__footer-layout {
       height: 140px;
+    }
+    &_padding-top {
+      padding-top: 140px;
     }
   }
 }
