@@ -1,7 +1,9 @@
 .social {
   position: absolute;
   top: 18px;
-  right: 28px;
+  left: 0;
+  width: 100%;
+  text-align: center;
   >a {
     display: inline-block;
     vertical-align: bottom;
@@ -31,5 +33,9 @@
 @media (min-width: $tablet-landscape) {
   .social {
     top: 38px;
+    left: auto;
+    right: 28px;
+    width: auto;
+    text-align: left;
   }
 }
