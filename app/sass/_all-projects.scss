@@ -9,6 +9,8 @@
     text-transform: uppercase;
   }
   &__filters-item {
+    display: inline-block;
+    vertical-align: top;
     margin: 0 16px 10px;
     color: #666666;
     &.active{
@@ -21,13 +23,11 @@
   &__item-wrap {
     display: inline-block;
     vertical-align: top;
+    overflow: hidden;
+    position: relative;
     width: 100%;
     height: 300px;
     margin: 0 0 30px;
-
-    &_big {
-      //height: 400px;
-    }
   }
   &__item{
     position: absolute;
@@ -119,9 +119,9 @@
 }
 @media (min-width: $tablet-portrait) {
   .projects {
-    padding: 83px 0;
+    padding: 84px 0;
     &__filters {
-      margin: 0 0 55px;
+      margin: 0 0 44px;
     }
     &__items {
       margin: 0 -14px;

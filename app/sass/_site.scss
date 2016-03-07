@@ -208,41 +208,70 @@
   }
   &__footer-copyright {
     position: absolute;
-    top: 28px;
-    left: 28px;
-    font-size: 14px;
-    line-height: 14px;
+    top: 50px;
+    right: 28px;
+    max-width: 50%;
+    font-size: 12px;
+    line-height: 12px;
     color: $footer-copyright-text-color;
+    @include main-font3();
+    text-transform: uppercase;
   }
   &__footer-connect {
     position: absolute;
-    top: 40px;
-    left: 50%;
-    padding: 0 0 30px;
+    top: 15px;
+    left: 28px;
+    max-width: 50%;
+    padding: 0 0 8px;
     color: $footer-connect-text-color;
     text-transform: uppercase;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 14px;
     @include main-font3();
-    @include transformX-center();
     &:after {
       position: absolute;
       bottom: 0;
       left: 50%;
-      width: 50%;
+      width: 32%;
       height: 2px;
       background: #0072ff;
       content: '';
       @include transformX-center();
+      @include transition( width, 0.3, 0 );
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+  &__to-top{
+    position: absolute;
+    top: 15px;
+    right: 28px;
+    max-width: 50%;
+    padding: 0 0 5px;
+    font-size: 14px;
+    line-height: 14px;
+    color: $footer-to-top-text-color;
+    @include main-font3();
+    text-transform: uppercase;
+    cursor: pointer;
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $footer-to-top-separate-background;
+      content: '';
+      @include transformX-center();
+      @include transition( width, 0.2, 0 );
+    }
+    &:hover:after {
+      width: 100%;
     }
   }
 }
 
-@media (min-width: $phone-landscape) {
-  .site {
-
-  }
-}
 @media (min-width: $tablet-portrait) {
   .site {
     &__title {
@@ -259,8 +288,8 @@
     &__menu {
       display: block;
       position: absolute;
-      top: 63px;
-      right: 22px;
+      top: 52px;
+      right: 31px;
       left: auto;
       width: auto;
       height: auto;
@@ -296,7 +325,21 @@
     }
     &__footer-copyright {
       top: 48px;
+      right: auto;
       left: 28px;
+      font-size: 14px;
+      line-height: 14px;
+    }
+    &__footer-connect {
+      top: 46px;
+      left: 50%;
+      font-size: 18px;
+      line-height: 18px;
+      @include transformX-center();
+    }
+    &__to-top{
+      top: 48px;
+      right: 28px;
     }
   }
 }

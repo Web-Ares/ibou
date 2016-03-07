@@ -16,6 +16,12 @@ $(function(){
 
         } );
 
+        $.each( $( '.site__to-top' ), function() {
+
+            new ToTop ( $( this ) );
+
+        } );
+
     });
 
     var FullHeightScreen = function (obj) {
@@ -77,7 +83,6 @@ $(function(){
         var _self = this,
             _menu = obj,
             _window = $( window ),
-            _header = $( '.site__header' ),
             _showBtn = $( '.site__menu-btn' );
 
         //private methods
@@ -102,7 +107,7 @@ $(function(){
 
 
                     }
-                });
+                } );
 
             },
             _openMenu = function( elem )  {
@@ -130,6 +135,41 @@ $(function(){
             },
             _init = function() {
                 _menu[ 0 ].obj = _self;
+                _addEvents();
+            };
+
+        _init();
+    };
+
+    var ToTop = function( obj ) {
+
+        //private properties
+        var _self = this,
+            _toTop = obj;
+
+        //private methods
+        var _addEvents = function() {
+
+                _toTop.on( {
+                    'click': function() {
+
+                        _scrollToTop();
+
+                        return false;
+                    }
+                } );
+
+
+
+            },
+            _scrollToTop = function ()  {
+
+                $( 'html, body' ).stop( true, false );
+                $( 'html, body' ).animate( { scrollTop: 0  }, 300 );
+
+            },
+            _init = function() {
+                _toTop[ 0 ].obj = _self;
                 _addEvents();
             };
 

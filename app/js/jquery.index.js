@@ -1,20 +1,20 @@
-$(function () {
+$( function () {
 
     $.each( $('.movie-slider'), function () {
 
-        new SliderSingle($(this));
+        new SliderSingle( $(this) );
 
     } );
 
-});
+} );
 
-var SliderSingle = function (obj)   {
+var SliderSingle = function ( obj )   {
 
     //private properties
     var _self = this,
         _obj = obj,
         _sliderSwiper,
-        _slider = _obj.find('.swiper-container'),
+        _slider = _obj.find( '.swiper-container' ),
         _window = $( window );
 
     //private methods
@@ -28,17 +28,16 @@ var SliderSingle = function (obj)   {
                 }
             } );
 
-        },_initSlider = function () {
+        },
+        _initSlider = function () {
 
             _sliderSwiper = new Swiper(_slider, {
-
                 pagination: '.swiper-pagination',
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
                 paginationClickable: true,
-                //mousewheelControl: true,
-                //direction: 'vertical',
                 effect: 'coverflow',
+                loop: true,
                 coverflow: {
                     rotate: 90,
                     stretch: 0,
@@ -47,8 +46,7 @@ var SliderSingle = function (obj)   {
                     slideShadows : true
                 },
                 speed: 500
-
-            });
+            } );
 
         },
         _init = function () {
