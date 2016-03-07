@@ -1,8 +1,7 @@
 .social {
   position: absolute;
-  top: 0;
+  top: 18px;
   right: 28px;
-
   >a {
     display: inline-block;
     vertical-align: bottom;
@@ -17,7 +16,6 @@
     &:hover {
       opacity: 1;
     }
-
     >svg {
       position: relative;
       top: 50%;
@@ -28,7 +26,12 @@
       @include transition( color, 0.3, 0 );
     }
   }
+}
 
+@media (min-width: $tablet-landscape) {
 
+  .social {
+    top: 38px;
+  }
 
 }
