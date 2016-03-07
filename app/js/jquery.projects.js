@@ -6,16 +6,10 @@ $(function () {
     //
     //} );
 
-    var selectedClass = "";
-    $(".projects__filters-item").click(function(){
-        selectedClass = $(this).attr("data-rel");
-        $(".projects__items").fadeTo(300, 0);
-        $(".projects__item").not("."+selectedClass).fadeOut().removeClass('scale-anm');
-        setTimeout(function() {
-            $("."+selectedClass).fadeIn().addClass('scale-anm');
-            $(".projects__items").fadeTo(600, 1);
-        }, 300);
-
+    $('.grid').isotope({
+        // options
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
     });
 
 });

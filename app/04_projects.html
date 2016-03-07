@@ -81,7 +81,7 @@
         <!-- /site__header -->
 
         <!-- site__content -->
-        <div class="site__content">
+        <div class="site__content site_padding-top">
 
             <!-- projects -->
             <div class="projects">
@@ -91,21 +91,21 @@
 
                     <!-- projects__filters -->
                     <div class="projects__filters">
-                        <a class="projects__filters-item active" href="#" data-rel="all">All</a>
-                        <a class="projects__filters-item" href="#" data-rel="videos">videos</a>
-                        <a class="projects__filters-item" href="#" data-rel="branding">branding</a>
-                        <a class="projects__filters-item" href="#" data-rel="motion-design">motion design</a>
-                        <a class="projects__filters-item" href="#" data-rel="3d">3d</a>
-                        <a class="projects__filters-item" href="#" data-rel="graphics">Graphics</a>
-                        <a class="projects__filters-item" href="#" data-rel="photography">Photography</a>
+                        <a class="projects__filters-item active" href="#" data-filter="*">All</a>
+                        <a class="projects__filters-item" href="#" data-filter="videos">videos</a>
+                        <a class="projects__filters-item" href="#" data-filter="branding">branding</a>
+                        <a class="projects__filters-item" href="#" data-filter="motion-design">motion design</a>
+                        <a class="projects__filters-item" href="#" data-filter="3d">3d</a>
+                        <a class="projects__filters-item" href="#" data-filter="graphics">Graphics</a>
+                        <a class="projects__filters-item" href="#" data-filter="photography">Photography</a>
                     </div>
                     <!-- projects__filters -->
 
                     <!-- projects__items -->
-                    <div class="projects__items">
+                    <div class="projects__items grid">
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item projects__item_big scale-anm all videos" style="background-image: url('pic/project1.jpg')">
+                        <a href="#" class="projects__item grid-item projects__item_big" data-category="videos" style="background-image: url('pic/project1.jpg')">
 
                             <!-- projects__text -->
                             <div class="projects__text">Saving of humanity</div>
@@ -115,27 +115,27 @@
                         <!-- /projects__item -->
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item scale-anm all branding" style="background-image: url('pic/project2.jpg')">
+                        <a href="#" class="projects__item grid-item" data-category="branding" style="background-image: url('pic/project2.jpg')">
                         </a>
                         <!-- /projects__item -->
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item scale-anm all motion-design" style="background-image: url('pic/project2.jpg')">
+                        <a href="#" class="projects__item grid-item" data-category="motion-design" style="background-image: url('pic/project2.jpg')">
                         </a>
                         <!-- /projects__item -->
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item scale-anm all 3d" style="background-image: url('pic/project2.jpg')">
+                        <a href="#" class="projects__item grid-item" data-category="3d" style="background-image: url('pic/project2.jpg')">
                         </a>
                         <!-- /projects__item -->
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item scale-anm all graphics" style="background-image: url('pic/project2.jpg')">
+                        <a href="#" class="projects__item grid-item" data-category="graphics" style="background-image: url('pic/project2.jpg')">
                         </a>
                         <!-- /projects__item -->
 
                         <!-- projects__item -->
-                        <a href="#" class="projects__item projects__item_big scale-anm all photography" style="background-image: url('pic/project1.jpg')">
+                        <a href="#" class="projects__item grid-item projects__item_big" data-category="photography" style="background-image: url('pic/project1.jpg')">
 
                         </a>
                         <!-- /projects__item -->
@@ -170,6 +170,7 @@
     <!-- /site -->
 
     <script src="js/vendors/jquery-2.1.4.min.js"></script>
+    <script src="js/vendors/isotope.pkgd.min.js"></script>
     <script src="js/projects.min.js"></script>
 
 </body>
