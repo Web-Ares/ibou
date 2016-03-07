@@ -6,12 +6,11 @@
   min-height: 100%;
   background: $site-background;
   @include main-font1();
-
   &__content {
     position: relative;
     z-index: 2;
+    padding: 90px 0;
   }
-
   &__header {
     position: fixed;
     z-index: 3;
@@ -23,8 +22,6 @@
     background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.54) 53%,rgba(0,0,0,0.3) 84%,rgba(0,0,0,0) 100%);
     background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.54) 53%,rgba(0,0,0,0.3) 84%,rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=0 );
-
-
     &-layout {
       position: relative;
       z-index: 1;
@@ -33,24 +30,22 @@
       margin: 0 auto;
     }
   }
-
   &__footer {
     position: absolute;
     z-index: 2;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 140px;
+    height: 90px;
   }
-
   &__footer-layout {
     position: relative;
     z-index: 1;
     max-width: 1860px;
     padding: 0 30px;
     margin: 0 auto;
+    height: 90px;
   }
-
   &__centered {
     position: relative;
     z-index: 1;
@@ -58,7 +53,6 @@
     padding: 0 30px;
     margin: 0 auto;
   }
-
   &__menu {
     display: none;
     position: fixed;
@@ -126,15 +120,14 @@
       }
     }
   }
-
   &__title {
+    margin: 0 0 10px;
     color: $title-color;
     font-size: 30px;
     line-height: 40px;
     text-transform: uppercase;
     @include main-font3();
   }
-
   &__menu-btn {
     display: block;
     position: absolute;
@@ -151,7 +144,6 @@
     -moz-user-select: none;
     user-select: none;
     cursor: pointer;
-
     span {
       display: block;
       position: absolute;
@@ -163,7 +155,6 @@
       background: $menu-btn-background;
       font-size: 0;
       @include transition( background-color );
-
       &:before,
       &:after {
         position: absolute;
@@ -175,34 +166,27 @@
         -webkit-transition: -webkit-transform 0.3s, background .3s;
         transition: transform 0.3s, background .3s;
       }
-
       &:before {
         -webkit-transform: translateY(-10px);
         transform: translateY(-10px);
       }
-
       &:after {
         -webkit-transform: translateY(10px);
         transform: translateY(10px);
       }
     }
-
     &.opened {
-
       span {
         background-color: transparent;
-
         &:before {
           -webkit-transform: translateY(0) rotate(45deg);
           transform: translateY(0) rotate(45deg);
         }
-
         &:after {
           -webkit-transform: translateY(0) rotate(-45deg);
           transform: translateY(0) rotate(-45deg);
         }
       }
-
     }
   }
 }
@@ -214,21 +198,17 @@
 }
 @media (min-width: $tablet-portrait) {
   .site {
-
     &__title {
       font-size: 45px;
       line-height: 50px;
     }
-
   }
 }
 @media (min-width: $tablet-landscape) {
   .site {
-
     &__header {
       height: 138px;
     }
-
     &__menu {
       display: block;
       position: absolute;
@@ -239,7 +219,6 @@
       height: auto;
       padding: 0;
       background: transparent;
-
       &-item {
         display: inline-block;
         vertical-align: top;
@@ -248,26 +227,31 @@
         padding: 10px 0;
         margin: 0 45px 0 0;
         color: $menu-color;
-
         &:last-child{
           margin-right: 0;
         }
       }
     }
-
     &__menu-btn {
       display: none;
+    }
+    &__content {
+      padding: 140px 0;
+    }
+    &__footer {
+      height: 140px;
+    }
+    &__footer-layout {
+      height: 140px;
     }
   }
 }
 @media (min-width: $desktop) {
   .site {
-
     &__title {
       font-size: 64px;
       line-height: 70px;
     }
-
   }
 }
 
