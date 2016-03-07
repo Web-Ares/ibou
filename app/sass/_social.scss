@@ -10,7 +10,7 @@
     height: 50px;
     margin: 0 15px 0 0;
     opacity: 0.3;
-    @include transition( opacity );
+    @include transition( opacity, 0.3, 0 );
     &:last-child {
       margin-right: 0;
     }
@@ -25,7 +25,7 @@
       width: 34px;
       height: 34px;
       @include transform-center();
-      @include transition(color);
+      @include transition( color, 0.3, 0 );
     }
   }
 
