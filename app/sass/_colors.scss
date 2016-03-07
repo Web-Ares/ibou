@@ -1,11 +1,19 @@
 //site
 $site-background: #000;
 $menu-color: #fff;
+$menu-border-color: #0072ff;
 $title-color: #fff;
+$footer-connect-border-color: #0072ff;
 
 //menu
 $menu-background: rgba(0, 0, 0, 0.9);
 $menu-btn-background: #fff;
+
+//footer
+$footer-copyright-text-color: #444444;
+$footer-connect-text-color: #fff;
+$footer-to-top-text-color: #444444;
+$footer-to-top-separate-background: #444444;
 
 //index
 $description-text-color: #999999;
@@ -13,6 +21,8 @@ $description-box-shadow-color: rgba(255, 255, 255, 0.5);
 $slider-bullet-background: #fff;
 $slider-bullet-border-color: rgba(255, 255, 255, 0.13);
 $slider-bullet-box-shadow-color: rgba(255, 255, 255, 0.5);
+$slider-button-background: #0072ff;
+$slider-button-hover-background: #fff;
 
 //single-project
 $single-project-caption-color: #fff;
@@ -27,3 +37,10 @@ $skills-color: #fff;
 //about-us
 $about-us-color: #bbb;
 $about-us-title-color: #fff;
+
+//projects
+$filter-item-color: #666666;
+$filter-item-active-color: #fff;
+$project-text-color: #fff;
+$project-text-background: rgba(0, 114, 255, 0.6);
+$project-text-border-color: #fff;

@@ -66,7 +66,6 @@
     font-size: 15px;
     line-height: 15px;
     @include main-font2();
-
     &-item {
       display: block;
       position: relative;
@@ -75,7 +74,6 @@
       margin: 0 auto;
       color: $menu-color;
       text-align: center;
-
       &.active:before,
       &:before,
       &.active:after,
@@ -86,21 +84,19 @@
         bottom: 50%;
         width: 0;
         height: 2px;
-        background: #0072ff;
+        background: $menu-border-color;
         -webkit-transition: -webkit-transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
         transition: transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
         pointer-events: none;
         @include transform-rotate( 90 );
         content: '';
       }
-
       &.active:after,
       &:after {
         left: auto;
         right: 0;
         @include transform-rotate( 90 );
       }
-
       &.active:before,
       &:hover:before {
         opacity: 1;
@@ -109,7 +105,6 @@
         width: 50%;
         @include transform-rotate( 180 );
       }
-
       &.active:after,
       &:hover:after {
         opacity: 1;
@@ -154,7 +149,7 @@
       margin-top: -2px;
       background: $menu-btn-background;
       font-size: 0;
-      @include transition( background-color );
+      @include transition( background-color, 0.3, 0 );
       &:before,
       &:after {
         position: absolute;
@@ -192,13 +187,86 @@
   &_padding-top {
     padding-top: 90px;
   }
-}
-
-@media (min-width: $phone-landscape) {
-  .site {
-
+  &__header-filter {
+    position: absolute;
+    z-index: 1;
+    top: 24px;
+    left: 50%;
+    width: 22px;
+    height: 24px;
+    @include transformX-center();
+    >svg{
+      position: relative;
+      width: 22px;
+      height: 24px;
+    }
+  }
+  &__footer-copyright {
+    position: absolute;
+    top: 50px;
+    right: 28px;
+    max-width: 50%;
+    font-size: 12px;
+    line-height: 12px;
+    color: $footer-copyright-text-color;
+    @include main-font3();
+    text-transform: uppercase;
+  }
+  &__footer-connect {
+    position: absolute;
+    top: 15px;
+    left: 28px;
+    max-width: 50%;
+    padding: 0 0 8px;
+    color: $footer-connect-text-color;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 14px;
+    @include main-font3();
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 32%;
+      height: 2px;
+      background: $footer-connect-border-color;
+      content: '';
+      @include transformX-center();
+      @include transition( width, 0.3, 0 );
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+  &__to-top{
+    position: absolute;
+    top: 15px;
+    right: 28px;
+    max-width: 50%;
+    padding: 0 0 5px;
+    font-size: 14px;
+    line-height: 14px;
+    color: $footer-to-top-text-color;
+    @include main-font3();
+    text-transform: uppercase;
+    cursor: pointer;
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $footer-to-top-separate-background;
+      content: '';
+      @include transformX-center();
+      @include transition( width, 0.2, 0 );
+    }
+    &:hover:after {
+      width: 100%;
+    }
   }
 }
+
 @media (min-width: $tablet-portrait) {
   .site {
     &__title {
@@ -215,8 +283,8 @@
     &__menu {
       display: block;
       position: absolute;
-      top: 63px;
-      right: 22px;
+      top: 52px;
+      right: 31px;
       left: auto;
       width: auto;
       height: auto;
@@ -250,6 +318,24 @@
     &_padding-top {
       padding-top: 140px;
     }
+    &__footer-copyright {
+      top: 48px;
+      right: auto;
+      left: 28px;
+      font-size: 14px;
+      line-height: 14px;
+    }
+    &__footer-connect {
+      top: 46px;
+      left: 50%;
+      font-size: 18px;
+      line-height: 18px;
+      @include transformX-center();
+    }
+    &__to-top{
+      top: 48px;
+      right: 28px;
+    }
   }
 }
 @media (min-width: $desktop) {
@@ -257,6 +343,9 @@
     &__title {
       font-size: 64px;
       line-height: 70px;
+    }
+    &__header-filter {
+      top: 54px;
     }
   }
 }

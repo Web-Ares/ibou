@@ -5,17 +5,12 @@
   width: 100%;
   height: 100%;
   .swiper-container {
-    //position: absolute;
-    //top: 0;
-    //left: 0;
     width: 100%;
     height: 100%;
   }
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
-    /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -32,11 +27,13 @@
     background-repeat: no-repeat;
   }
   .swiper-controls {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    z-index: 3;
+    right: 1%;
     top: 50%;
     width: 24px;
     height: 176px;
+    @include transformY-center();
   }
   .swiper-pagination {
     position: absolute;
@@ -50,6 +47,7 @@
       position: relative;
       width: 24px;
       height: 24px;
+      margin: 10px 0;
       background: transparent;
       border: 1px solid $slider-bullet-border-color;
       border-radius: 100%;
@@ -61,7 +59,7 @@
         left: 50%;
         width: 8px;
         height: 8px;
-        border-radius: 100%;
+        border-radius: 8px;
         background: $slider-bullet-background;
         @include transform-center();
         content: '';
@@ -79,12 +77,31 @@
     width: 12px;
     height: 19px;
     margin: 0 0 0 -6px;
-    background-size: cover;
+    background: none;
     @include transform-rotate(90);
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin: 3px 0 0 -3px;
+      border-top: 2px solid $slider-button-background;
+      border-right: 2px solid $slider-button-background;
+      @include transform-rotate( -135 );
+      @include transition( border, 0.2, 0 );
+      content: '';
+    }
+    &:hover:after {
+      border-color: $slider-button-hover-background;
+    }
   }
   .swiper-button-next{
     top: auto;
     bottom: 0;
+    &:after {
+      @include transform-rotate( 45 );
+    }
   }
   &__card {
     display: -webkit-box;
@@ -137,25 +154,16 @@
     }
   }
 }
-@media (min-width: $phone-landscape) {
-  .main-slider {
 
-  }
-}
-@media (min-width: $tablet-portrait) {
-  .main-slider {
-
-  }
-}
 @media (min-width: $tablet-landscape) {
   .movie-slider {
     &__card {
       top: 140px;
-      bottom: 140px;
+      bottom: 151px;
     }
     &__description {
       width: 326px;
-      padding: 60px 0 0 60px;
+      padding: 55px 0 0 60px;
       font-size: 18px;
       line-height: 26px;
       -webkit-align-self: flex-start;
@@ -178,12 +186,22 @@
       -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
+      @include transformY( 13% );
     }
   }
 }
 @media (min-width: $desktop) {
-  .main-slider {
-
+  .movie-slider {
+    .swiper-controls {
+      right: 3%;
+    }
   }
 }
 
+@media (min-width: $desktop_1600) {
+  .movie-slider {
+    &__description {
+      margin: 0 0 0 -60px;
+    }
+  }
+}
