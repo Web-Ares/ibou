@@ -1,0 +1,116 @@
+/* ------------ connect ------------ */
+.about-us {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 0;
+  color: $about-us-color;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 16px;
+  text-align: center;
+
+  &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      content:'';
+  }
+
+  &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      content:'';
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 100%);
+      background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,1) 100%);
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  p {
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+
+  &__wrapper {
+    max-width: 660px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    color: $about-us-title-color;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    @include main-font2();
+  }
+
+  &__sub-title {
+    margin-bottom: 20px;
+    color: $about-us-title-color;
+    line-height: 1.5;
+
+    b {
+      @include main-font2();
+    }
+
+  }
+
+  @media (min-width: $phone-landscape) {
+
+    &__sub-title {
+
+      span {
+        display: block;
+      }
+
+    }
+
+  }
+
+  @media (min-width: $desktop) {
+    padding: 150px 0;
+    font-size: 18px;
+
+    p {
+      margin-bottom: 25px;
+    }
+
+    &__wrapper {
+      padding: 0 30px;
+    }
+
+    &__title {
+      margin-bottom: 46px;
+      font-size: 36px;
+    }
+
+    &__sub-title {
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+  }
+
+}
+/* ------------ /connect ------------ */
