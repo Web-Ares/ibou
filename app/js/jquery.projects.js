@@ -1,14 +1,26 @@
 $(function () {
 
-    $.each( $('.movie-slider'), function () {
+    //$.each( $('.projects'), function () {
+    //
+    //    new Filter( $(this) );
+    //
+    //} );
 
-        new SliderSingle($(this));
+    var selectedClass = "";
+    $(".projects__filters-item").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $(".projects__items").fadeTo(300, 0);
+        $(".projects__item").not("."+selectedClass).fadeOut().removeClass('scale-anm');
+        setTimeout(function() {
+            $("."+selectedClass).fadeIn().addClass('scale-anm');
+            $(".projects__items").fadeTo(600, 1);
+        }, 300);
 
-    } );
+    });
 
 });
 
-var SliderSingle = function (obj)   {
+var Filter = function (obj)   {
 
     //private properties
     var _self = this,
