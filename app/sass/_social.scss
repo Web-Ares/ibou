@@ -26,10 +26,43 @@
       @include transition( color, 0.3, 0 );
     }
   }
+
+  &_mobile {
+    > a {
+      width: 30px;
+      height: 40px;
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+
+    }
+  }
+
 }
 
 @media (min-width: $tablet-landscape) {
   .social {
     top: 38px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .social {
+
+    &_mobile {
+      > a {
+        width: 40px;
+        height: 50px;
+
+        > svg {
+          width: 34px;
+          height: 34px;
+        }
+
+      }
+    }
+
   }
 }

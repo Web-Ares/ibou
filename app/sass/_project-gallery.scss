@@ -103,14 +103,24 @@
 
   }
 
-  @media (min-width: $phone-landscape) {
+}
+/* ------------ /project-gallery ------------ */
+
+@media (min-width: $phone-landscape) {
+
+  .project-gallery {
 
     &__preview {
       padding-bottom: 16%;
     }
 
   }
-  @media (min-width: $tablet-portrait) {
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .project-gallery {
 
     &__preview {
 
@@ -192,7 +202,12 @@
     }
 
   }
-  @media (min-width: $tablet-landscape) {
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .project-gallery {
 
     &__preview {
       padding-bottom: 13%;
@@ -208,7 +223,15 @@
     }
 
   }
-  @media (min-width: $desktop) {}
 
 }
-/* ------------ /project-gallery ------------ */
+
+@media (min-width: $desktop) {
+
+  .project-gallery {
+    margin-bottom: 88px;
+  }
+
+
+
+}

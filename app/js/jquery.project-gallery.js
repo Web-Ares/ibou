@@ -60,10 +60,6 @@ var ProjectGallery = function ( obj ) {
                 nextButton: _prevewBtnNext,
                 prevButton: _prevewBtnPrev,
                 speed: 700
-                //onSlideChangeEnd: function(){
-                //    var curLinkIndex = _previewWrap.find( '.swiper-slide-active' ).index();
-                //    _mainPicWrap[0].bigSizeGallery.slideSwiper( curLinkIndex );
-                //}
             });
 
         },
