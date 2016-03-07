@@ -1,0 +1,189 @@
+.movie-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .swiper-container {
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .swiper-controls {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 24px;
+    height: 176px;
+  }
+  .swiper-pagination {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform-center();
+
+    .swiper-pagination-bullet {
+      display: block;
+      opacity: 0.2;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      background: transparent;
+      border: 1px solid $slider-bullet-border-color;
+      border-radius: 100%;
+      box-shadow: 0 0 15px 0 $slider-bullet-box-shadow-color;
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background: $slider-bullet-background;
+        @include transform-center();
+        content: '';
+      }
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 0;
+    right: auto;
+    left: 50%;
+    width: 12px;
+    height: 19px;
+    margin: 0 0 0 -6px;
+    background-size: cover;
+    @include transform-rotate(90);
+  }
+  .swiper-button-next{
+    top: auto;
+    bottom: 0;
+  }
+  &__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    bottom: 90px;
+    left: 0;
+  }
+  &__description {
+    overflow: hidden;
+    position: relative;
+    max-height: 260px;
+    min-height: 60px;
+    padding: 13px 10px 7px 70px;
+    font-size: 14px;
+    line-height: 22px;
+    color: $description-text-color;
+    text-align: left;
+    &:after{
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      width: 46px;
+      height: 46px;
+      background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20width%3D%22250px%22%20height%3D%22250px%22%20viewBox%3D%2275%2025%20250%20250%22%20enable-background%3D%22new%2075%2025%20250%20250%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M187.5%2C25v112.5H75v25h112.5V275h25V162.5H325v-25H212.5V25H187.5z%22/%3E%0A%3C/svg%3E);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      border: 1px solid #fff;
+      border-radius: 46px;
+      box-shadow: 0 0 10px 0 $description-box-shadow-color;
+      content: '';
+      strong{
+        @include main-font2();
+      }
+    }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .main-slider {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .main-slider {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .movie-slider {
+    &__card {
+      top: 140px;
+      bottom: 140px;
+    }
+    &__description {
+      width: 326px;
+      padding: 60px 0 0 60px;
+      font-size: 18px;
+      line-height: 26px;
+      -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+      align-self: flex-start;
+    }
+    .site__title{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+    }
+  }
+}
+@media (min-width: $desktop) {
+  .main-slider {
+
+  }
+}
+

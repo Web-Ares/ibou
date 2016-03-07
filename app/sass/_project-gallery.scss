@@ -1,0 +1,214 @@
+/* ------------ project-gallery ------------ */
+.project-gallery {
+
+  margin-bottom: 30px;
+
+  &__main {
+    position: relative;
+    padding-bottom: 42.3%;
+
+    .swiper-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+
+  }
+  &__preview {
+    padding-bottom: 25%;
+
+    .swiper-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      span {
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        color: rgb( 245, 249, 250 );
+        font-size: 10px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        @include main-font3();
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+      }
+      &:before {
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.7);
+          -webkit-transition: opacity 0.3s ease;
+          transition: opacity 0.3s ease;
+          content:'';
+      }
+      &:hover:before,
+      &:hover span {
+        opacity: 1;
+      }
+
+    }
+
+  }
+  &__main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+  }
+
+  @media (min-width: $phone-landscape) {
+
+    &__preview {
+      padding-bottom: 16%;
+    }
+
+  }
+  @media (min-width: $tablet-portrait) {
+
+    &__preview {
+
+      .swiper-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .swiper-slide {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        span {
+          position: absolute;
+          z-index: 2;
+          opacity: 0;
+          top: 50%;
+          left: 50%;
+          color: rgb( 245, 249, 250 );
+          font-size: 10px;
+          text-transform: uppercase;
+          white-space: nowrap;
+          @include main-font3();
+          -ms-transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          -webkit-transition: opacity 0.3s ease;
+          transition: opacity 0.3s ease;
+        }
+        &:before {
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.7);
+          -webkit-transition: opacity 0.3s ease;
+          transition: opacity 0.3s ease;
+          content:'';
+        }
+        &:hover:before,
+        &:hover span {
+          opacity: 1;
+        }
+
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      &:hover .swiper-button-next,
+      &:hover .swiper-button-prev {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:hover .swiper-button-next.swiper-button-disabled,
+      &:hover .swiper-button-prev.swiper-button-disabled {
+        opacity: 0.25;
+      }
+
+    }
+
+  }
+  @media (min-width: $tablet-landscape) {
+
+    &__preview {
+      padding-bottom: 13%;
+
+      .swiper-slide {
+
+        span {
+          font-size: 14px;
+        }
+
+      }
+
+    }
+
+  }
+  @media (min-width: $desktop) {}
+
+}
+/* ------------ /project-gallery ------------ */

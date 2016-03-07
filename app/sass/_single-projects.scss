@@ -1,0 +1,230 @@
+/* ------------ single-project ------------ */
+.single-project {
+  position: relative;
+  padding: 100px 0 30px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 1.444;
+
+  &:before {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content:'';
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%);
+      background: linear-gradient(to bottom,  rgba(0,0,0,0.7) 0%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#000000',GradientType=0 );
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__annotation {
+    font-size: 16px;
+
+    margin-bottom: 20px;
+    color: $single-project-text-color;
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+  }
+
+  &__caption {
+    margin-bottom: 10px;
+    color: $single-project-caption-color;
+    font-size: 22px;
+    @include main-font3();
+
+  }
+
+  &__title {
+    color: $single-project-caption-color;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  &__crew-wrapper {
+    margin-bottom: 15px;
+    color: $single-project-text-color;
+    font-size: 16px;
+
+    > div {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    dl {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    dt {
+      margin-bottom: 10px;
+      color: $single-project-caption-color;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+
+  }
+
+  &__share {
+    display: block;
+    margin-bottom: 10px;
+    color: $single-project-caption-color;
+
+    .social {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+
+  }
+
+  @media (min-width: $phone-landscape) {
+
+    &__crew-wrapper {
+      text-align: justify;
+      margin-bottom: -12px;
+
+      &:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
+      }
+
+      > div {
+        display: inline-block;
+        vertical-align: top;
+        width: 48%;
+        margin-bottom: 0;
+        padding-right: 15px;
+        text-align: left;
+      }
+
+    > div:nth-child(2) {
+      padding-right: 0;
+      padding-left: 15px;
+    }
+
+    }
+
+    &__share {
+      text-align: justify;
+
+      &:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
+      }
+
+      > * {
+        display: inline-block;
+        vertical-align: top;
+        width: 48%;
+        margin: 0;
+        padding-right: 15px;
+        text-align: left;
+      }
+
+      > *:nth-child(2) {
+        padding-right: 0;
+        padding-left: 15px;
+      }
+
+    }
+
+  }
+  @media (min-width: $tablet-landscape) {
+
+    &__description {
+      text-align: justify;
+
+      &:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
+      }
+
+      > * {
+        display: inline-block;
+        vertical-align: top;
+        width: 48%;
+        margin: 0;
+        padding-right: 15px;
+        text-align: left;
+
+      }
+
+      > *:nth-child(2) {
+        padding-right: 0;
+        padding-left: 15px;
+      }
+
+    }
+
+  }
+  @media (min-width: $desktop) {
+    padding: 200px 0 30px;
+
+    &__caption {
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+
+    &__title {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    &__annotation {
+      font-size: 18px;
+    }
+
+    &__crew-wrapper {
+      font-size: 18px;
+
+      dt {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+    }
+
+  }
+  @media (min-width: $desktop_1600) {
+    padding: 300px 0 30px;
+  }
+
+}
+/* ------------ /single-project ------------ */

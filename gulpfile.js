@@ -23,11 +23,33 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.index.js'
             ]
+        },
+        {
+            dist: 'single-project.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.project-gallery.js'
+            ]
+        },
+        {
+            dist: 'about.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.about.js'
+            ]
+        },
+        {
+            dist: 'projects.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.projects.js'
+            ]
         }
     ],
     watchScripts: 'app/js/**/*.js',
     vendorScripts: 'app/js/vendors/**/*.js',
     images: 'app/img/**/*',
+    fonts: 'app/fonts/**/*',
     pictures: 'app/pic/**/*'
 };
 
@@ -86,8 +108,12 @@ gulp.task('images', function() {
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/img'));
 });
+gulp.task('fonts', function() {
+    return gulp.src(paths.fonts)
+        .pipe(gulp.dest('dist/fonts'));
+});
 gulp.task('pictures', function() {
-    return gulp.src(paths.images)
+    return gulp.src(paths.pictures)
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/pic'));
 });
@@ -101,7 +127,7 @@ gulp.task('watch', function() {
 });
 
 function serve() {
-    return run('styles', 'scripts', 'vendorScripts', 'images', 'pictures', 'views', 'serve');
+    return run('styles', 'scripts', 'vendorScripts', 'images', 'pictures', 'fonts', 'views', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());

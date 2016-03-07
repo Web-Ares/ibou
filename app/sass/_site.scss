@@ -4,29 +4,24 @@
   z-index: 1;
   min-width: 320px;
   min-height: 100%;
-  @include main-font1;
-
-  &:after {
-    display: block;
-    width: 100%;
-    height: 140px;
-    content: '';
-  }
+  background: $site-background;
+  @include main-font1();
   &__content {
     position: relative;
     z-index: 2;
-    min-height: 100vh;
+    padding: 0 0 90px;
   }
-
   &__header {
-    position: absolute;
+    position: fixed;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
-    height: 138px;
-    background: rgba(255, 239, 27, 0.39);
-    z-index: 3;
-
+    height: 90px;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.54) 53%, rgba(0,0,0,0.3) 84%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.54) 53%,rgba(0,0,0,0.3) 84%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0.54) 53%,rgba(0,0,0,0.3) 84%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=0 );
     &-layout {
       position: relative;
       z-index: 1;
@@ -34,24 +29,23 @@
       padding: 0 30px;
       margin: 0 auto;
     }
-
   }
-
   &__footer {
     position: absolute;
     z-index: 2;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 140px;
-    background: rgba(0, 101, 255, 0.43);
+    height: 90px;
   }
-
   &__footer-layout {
-    width: 100%;
-    height: 100px;
+    position: relative;
+    z-index: 1;
+    max-width: 1860px;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 90px;
   }
-
   &__centered {
     position: relative;
     z-index: 1;
@@ -59,7 +53,189 @@
     padding: 0 30px;
     margin: 0 auto;
   }
+  &__menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0 0;
+    background: $menu-background;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 15px;
+    @include main-font2();
 
+    &-item {
+      display: block;
+      position: relative;
+      max-width: 200px;
+      padding: 20px 0;
+      margin: 0 auto;
+      color: $menu-color;
+      text-align: center;
+
+      &.active:before,
+      &:before,
+      &.active:after,
+      &:after{
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        bottom: 50%;
+        width: 0;
+        height: 2px;
+        background: #0072ff;
+        -webkit-transition: -webkit-transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
+        transition: transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
+        pointer-events: none;
+        @include transform-rotate( 90 );
+        content: '';
+      }
+
+      &.active:after,
+      &:after {
+        left: auto;
+        right: 0;
+        @include transform-rotate( 90 );
+      }
+
+      &.active:before,
+      &:hover:before {
+        opacity: 1;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        @include transform-rotate( 180 );
+      }
+
+      &.active:after,
+      &:hover:after {
+        opacity: 1;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        @include transform-rotate( 0 );
+      }
+    }
+  }
+  &__title {
+    margin: 0 0 10px;
+    color: $title-color;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    @include main-font3();
+  }
+  &__menu-btn {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 33px;
+    right: 2px;
+    width: 50px;
+    height: 25px;
+    padding: 0;
+    background: none;
+    border: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      right: 10px;
+      height: 3px;
+      margin-top: -2px;
+      background: $menu-btn-background;
+      font-size: 0;
+      @include transition( background-color, 0.3, 0 );
+      &:before,
+      &:after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        content: '';
+        -webkit-transition: -webkit-transform 0.3s, background .3s;
+        transition: transform 0.3s, background .3s;
+      }
+      &:before {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      &:after {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+    }
+    &.opened {
+      span {
+        background-color: transparent;
+        &:before {
+          -webkit-transform: translateY(0) rotate(45deg);
+          transform: translateY(0) rotate(45deg);
+        }
+        &:after {
+          -webkit-transform: translateY(0) rotate(-45deg);
+          transform: translateY(0) rotate(-45deg);
+        }
+      }
+    }
+  }
+  &_padding-top {
+    padding-top: 90px;
+  }
+  &__header-filter {
+    position: absolute;
+    z-index: 1;
+    top: 24px;
+    left: 50%;
+    width: 22px;
+    height: 24px;
+    @include transformX-center();
+    >svg{
+      position: relative;
+      width: 22px;
+      height: 24px;
+    }
+  }
+  &__footer-copyright {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    font-size: 14px;
+    line-height: 14px;
+    color: $footer-copyright-text-color;
+  }
+  &__footer-connect {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    padding: 0 0 30px;
+    color: $footer-connect-text-color;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 18px;
+    @include main-font3();
+    @include transformX-center();
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 50%;
+      height: 2px;
+      background: #0072ff;
+      content: '';
+      @include transformX-center();
+    }
+  }
 }
 
 @media (min-width: $phone-landscape) {
@@ -69,17 +245,70 @@
 }
 @media (min-width: $tablet-portrait) {
   .site {
-
+    &__title {
+      font-size: 45px;
+      line-height: 50px;
+    }
   }
 }
 @media (min-width: $tablet-landscape) {
   .site {
-
+    &__header {
+      height: 138px;
+    }
+    &__menu {
+      display: block;
+      position: absolute;
+      top: 63px;
+      right: 22px;
+      left: auto;
+      width: auto;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      &-item {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        max-width: 100%;
+        padding: 10px 0;
+        margin: 0 45px 0 0;
+        color: $menu-color;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+    &__menu-btn {
+      display: none;
+    }
+    &__content {
+      padding: 0 0 140px;
+    }
+    &__footer {
+      height: 140px;
+    }
+    &__footer-layout {
+      height: 140px;
+    }
+    &_padding-top {
+      padding-top: 140px;
+    }
+    &__footer-copyright {
+      top: 48px;
+      left: 28px;
+    }
   }
 }
 @media (min-width: $desktop) {
   .site {
-
+    &__title {
+      font-size: 64px;
+      line-height: 70px;
+    }
+    &__header-filter {
+      top: 54px;
+    }
   }
 }
 
