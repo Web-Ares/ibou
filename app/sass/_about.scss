@@ -12,8 +12,8 @@
   -webkit-align-items: center;
   align-items: center;
   position: relative;
-  min-height: 100vh;
-  padding: 120px 0;
+  min-height: calc(100vh - 90px);
+  padding: 100px 0 40px;
   color: $about-us-color;
   background-size: cover;
   background-repeat: no-repeat;
@@ -76,7 +76,11 @@
 
   }
 
-  @media (min-width: $phone-landscape) {
+}
+
+@media (min-width: $phone-landscape) {
+
+  .about-us {
 
     &__sub-title {
 
@@ -88,8 +92,24 @@
 
   }
 
-  @media (min-width: $desktop) {
-    padding: 150px 0;
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .about-us {
+
+    padding: 150px 0 20px;
+    min-height: calc(100vh - 140px);
+
+  }
+
+
+}
+
+@media (min-width: $desktop) {
+
+  .about-us {
+
     font-size: 18px;
 
     p {

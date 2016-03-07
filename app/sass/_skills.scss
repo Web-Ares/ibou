@@ -31,7 +31,11 @@
 
   }
 
-  @media (min-width: $phone-landscape) {
+}
+
+@media (min-width: $phone-landscape) {
+
+  .skills {
 
     &__wrapper {
 
@@ -44,13 +48,12 @@
 
   }
 
-  @media (min-width: $tablet-landscape) {
+}
 
-    &__wrapper {}
+@media (min-width: $desktop) {
 
-  }
+  .skills {
 
-  @media (min-width: $desktop) {
     padding-top: 66px;
 
     &__title {
