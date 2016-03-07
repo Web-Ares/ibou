@@ -66,7 +66,6 @@
     font-size: 15px;
     line-height: 15px;
     @include main-font2();
-
     &-item {
       display: block;
       position: relative;
@@ -75,7 +74,6 @@
       margin: 0 auto;
       color: $menu-color;
       text-align: center;
-
       &.active:before,
       &:before,
       &.active:after,
@@ -86,21 +84,19 @@
         bottom: 50%;
         width: 0;
         height: 2px;
-        background: #0072ff;
+        background: $menu-border-color;
         -webkit-transition: -webkit-transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
         transition: transform .3s linear, opacity .3s linear, bottom .3s linear, width .3s linear;
         pointer-events: none;
         @include transform-rotate( 90 );
         content: '';
       }
-
       &.active:after,
       &:after {
         left: auto;
         right: 0;
         @include transform-rotate( 90 );
       }
-
       &.active:before,
       &:hover:before {
         opacity: 1;
@@ -109,7 +105,6 @@
         width: 50%;
         @include transform-rotate( 180 );
       }
-
       &.active:after,
       &:hover:after {
         opacity: 1;
@@ -234,7 +229,7 @@
       left: 50%;
       width: 32%;
       height: 2px;
-      background: #0072ff;
+      background: $footer-connect-border-color;
       content: '';
       @include transformX-center();
       @include transition( width, 0.3, 0 );
