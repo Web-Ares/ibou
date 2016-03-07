@@ -1,5 +1,5 @@
 /* ------------ connect ------------ */
-.about-us {
+.connect {
   display: flex;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -12,9 +12,8 @@
   -webkit-align-items: center;
   align-items: center;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   padding: 120px 0;
-  color: $about-us-color;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -27,7 +26,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.3);
       content:'';
   }
 
