@@ -6,10 +6,36 @@ $(function () {
     //
     //} );
 
-    $('.grid').isotope({
+    var $container = $('.projects__items').isotope({
         // options
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows'
+        itemSelector: '.projects__item-wrap',
+        masonry: {
+            columnWidth: 0
+        },
+        getSortData: {
+            category: '[data-category]'
+        }
+    });
+
+    // filter functions
+    var filterFns = {
+        // show if number is greater than 50
+        numberGreaterThan50: function() {
+            var number = $(this).find('.number').text();
+            return parseInt( number, 10 ) > 50;
+        },
+        // show if name ends with -ium
+        ium: function() {
+            var name = $(this).find('.name').text();
+            return name.match( /ium$/ );
+        }
+    };
+
+    $('.projects__filters').on( 'click', '.projects__filters-item', function() {
+        var filterValue = $( this ).attr('data-filter');
+        // use filterFn if matches value
+        filterValue = filterFns[ filterValue ] || filterValue;
+        $container.isotope({ filter: filterValue });
     });
 
 });
