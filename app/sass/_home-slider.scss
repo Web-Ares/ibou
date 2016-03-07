@@ -195,9 +195,13 @@
     .swiper-controls {
       right: 3%;
     }
+  }
+}
+
+@media (min-width: $desktop_1600) {
+  .movie-slider {
     &__description {
       margin: 0 0 0 -60px;
     }
   }
 }
-
