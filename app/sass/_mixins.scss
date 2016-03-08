@@ -56,3 +56,7 @@
   -webkit-transition: opacity $duration+s $function, visibility $duration+s $function;
   transition: opacity $duration+s $function, visibility $duration+s $function;
 }
+@mixin transition-color-bg( $duration, $function ) {
+  -webkit-transition: color $duration+s $function, background $duration+s $function;
+  transition: opacity $duration+s $function, visibility $duration+s $function;
+}

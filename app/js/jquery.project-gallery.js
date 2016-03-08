@@ -118,7 +118,7 @@ var BigSizeGallery = function ( obj, _links ) {
             var src = _obj.find( '.swiper-slide-active').attr( 'data-src' ),
                 innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
 
-            _obj.find( '.swiper-slide-active' ).find( '.project-gallery__main-video' ).prepend( innerContent );
+            _obj.find( '.swiper-slide-active' ).find( '.project-gallery__main-video' ).append( innerContent );
 
         },
         _addingVariables = function(){
@@ -138,24 +138,23 @@ var BigSizeGallery = function ( obj, _links ) {
 
             $.each( _links, function(){
 
-                var innerContent, dataSRC, preloader;
+                var innerContent, dataSRC;
 
                 if ( $( this ).hasClass( 'swiper-slide_video' ) ){
 
-                    preloader = '<i class="fa fa-spinner fa-spin"></i>';
-                    innerContent = '<div class="project-gallery__main-video"/>';
+                    innerContent = '<div class="project-gallery__main-video"/>\
+                                        <span class="bounce-preloader"><span class="bounce-preloader__ball"></span></span>\
+                                    </div>';
                     dataSRC = 'data-src="' + $( this ).attr( "href" ) + '"';
 
                 } else {
 
-                    preloader = '';
                     innerContent = '';
                     dataSRC = 'style="background-image: url(' + $( this ).attr( 'href' ) + ');"';
 
                 }
 
                 var newItem = $( '<div class="swiper-slide"' + dataSRC + '>\
-                                        ' + preloader + '\
                                         ' + innerContent + '\
                                     </div>' );
 

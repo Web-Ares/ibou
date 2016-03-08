@@ -1,10 +1,11 @@
 /* ------------ jobs ------------ */
 .jobs {
+  padding-bottom: 30px;
   color: $jobs-color;
 
   &__head {
     position: relative;
-    padding-bottom: 20%;
+    padding-bottom: 25.2%;
     min-height: 150px;
     background-position: top center;
     background-size: cover;
@@ -34,6 +35,7 @@
 
   &__wrap {
     font-size: 16px;
+    padding-bottom: 30px;
   }
 
   &__caption {
@@ -81,11 +83,11 @@
     line-height: 1.75;
   }
 
-}
-
-@media (min-width: $phone-landscape) {
-
-  .jobs {}
+  &__inline {
+    > div:first-child {
+      margin-bottom: 30px;
+    }
+  }
 
 }
 
@@ -108,7 +110,7 @@
     &__caption,
     &__sub-caption,
     &__cover {
-      padding-left: 300px;
+      padding-left: 315px;
     }
 
     &__caption {
@@ -122,11 +124,12 @@
 
     &__wrap {
       font-size: 18px;
+      padding-bottom: 50px;
     }
 
     &__cover {
       position: relative;
-      margin-bottom: 60px;
+      margin-bottom: 56px;
 
       &:last-child {
         margin-bottom: 0;
@@ -158,8 +161,6 @@
       width: 285px;
     }
 
-    &__cover {}
-
   }
 
 }
@@ -167,6 +168,7 @@
 @media (min-width: $desktop) {
 
   .jobs {
+    padding-bottom: 48px;
 
     &__title {
       font-size: 48px;
@@ -180,6 +182,7 @@
           display: inline-block;
           vertical-align: top;
           width: 300px;
+          margin: 0 9px 0 0;
         }
 
         &:last-child {
