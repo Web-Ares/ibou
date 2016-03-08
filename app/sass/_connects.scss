@@ -1,19 +1,8 @@
 /* ------------ connect ------------ */
 .connect {
-  display: flex;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -webkit-flex-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   position: relative;
-  height: 100vh;
-  padding: 120px 0;
+  padding: 120px 0 20px;
+  background: url('../img/connect__bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,67 +35,124 @@
     z-index: 2;
   }
 
-  p {
-    line-height: 1.45;
-    margin-bottom: 20px;
-  }
-
   &__wrapper {
-    max-width: 660px;
+    max-width: 1230px;
     padding: 0 30px;
     margin: 0 auto;
   }
 
+  &__page-name {
+    margin-bottom: 40px;
+    color: $connect-title-color;
+  }
+
   &__title {
-    color: $about-us-title-color;
+    color: $connect-title-color;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    @include main-font2();
+    @include main-font3();
   }
 
-  &__sub-title {
-    margin-bottom: 20px;
-    color: $about-us-title-color;
-    line-height: 1.5;
-
-    b {
-      @include main-font2();
-    }
-
+  &__phone,
+  &__email,
+  &__address {
+    color: $connect-content-color;
+    cursor: default;
   }
 
-  @media (min-width: $phone-landscape) {
+  &__main-contacts {
+    margin-bottom: 40px;
+    color: $connect-content-color;
+    line-height: 23px;
+  }
 
-    &__sub-title {
+  &__main-contacts dt {
+    color: $connect-sub-title-color;
+    @include main-font3();
+    text-transform: uppercase;
+  }
 
-      span {
-        display: block;
-      }
+  &__main-contacts dd {
+    margin-bottom: 10px;
+  }
 
-    }
+  &__person-contacts {
+    margin-bottom: 40px;
+    line-height: 23px;
+  }
 
+  &__person-contacts dt {
+    color: $connect-sub-title-color;
+    font-size: 12px;
+    @include main-font3();
+    text-transform: uppercase;
+  }
+
+  &__person-contacts dd{
+    margin-bottom: 10px;
+  }
+
+  &__person-contacts &__person {
+    color: $connect-content-color;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  &__person-post {
+    color: $connect-person-post-color;
+    font-size: 14px;
   }
 
   @media (min-width: $desktop) {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: -150px;
     padding: 150px 0;
     font-size: 18px;
 
-    p {
-      margin-bottom: 25px;
-    }
-
     &__wrapper {
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      flex-flow: row wrap;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
       padding: 0 30px;
     }
 
-    &__title {
-      margin-bottom: 46px;
-      font-size: 36px;
+    &__page-name{
+      width: 100%;
+      font-size: 24px;
     }
 
-    &__sub-title {
-      margin-bottom: 24px;
-      font-size: 24px;
+    &__title {
+      font-size: 60px;
+    }
+
+    &__page-name {
+      margin-bottom: 0;
+    }
+
+    &__main-contacts{
+      flex-grow: 6;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    &__person-contacts{
+      flex-grow: 3;
+      margin-bottom: 0;
+      text-align: left;
     }
 
   }
