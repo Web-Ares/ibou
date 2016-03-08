@@ -44,6 +44,13 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.projects.js'
             ]
+        },
+        {
+            dist: 'jobs.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.tabs.js'
+            ]
         }
     ],
     watchScripts: 'app/js/**/*.js',

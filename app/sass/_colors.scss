@@ -4,6 +4,9 @@ $menu-color: #fff;
 $menu-border-color: #0072ff;
 $title-color: #fff;
 $footer-connect-border-color: #0072ff;
+$site-list-color: #bbb;
+$site-link-color: #fff;
+$site-link-border: #0072ff;
 
 //menu
 $menu-background: rgba(0, 0, 0, 0.9);
@@ -45,6 +48,16 @@ $project-text-color: #fff;
 $project-text-background: rgba(0, 114, 255, 0.6);
 $project-text-border-color: #fff;
 
-
 //jobs
-$jobs-color: $fff;
+$jobs-color: #fff;
+$jobs-minor-color: #bbb;
+
+//tabs
+$tabs-controls-wrap-border: #e1e1e1;
+$tabs-controls-wrap-bg: #f0f0f0;
+$tabs-controls-color: #888;
+$tabs-controls-active-color: #fff;
+$tabs-position-color: #1a1a1a;
+$tabs-position-active-color: #fff;
+$tabs-position-bg: #000c1a;
+$tabs-position-active-bg: #0072ff;

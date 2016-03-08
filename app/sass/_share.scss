@@ -1,0 +1,62 @@
+/* ------------ share ------------ */
+.share {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+
+  dt {
+    font-size: 16px;
+  }
+
+  dd {}
+
+  .social {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+}
+
+@media (min-width: $phone-landscape) {
+
+  .share {
+    text-align: justify;
+
+    &:after {
+      display: inline-block;
+      width: 100%;
+      content: '';
+    }
+
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+      width: 50%;
+      margin: 0;
+      padding-right: 15px;
+      text-align: left;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .share {}
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .share {}
+
+}
+
+@media (min-width: $desktop) {
+
+  .share {}
+
+}
+/* ------------ /share ------------ */
