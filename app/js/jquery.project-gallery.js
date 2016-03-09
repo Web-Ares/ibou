@@ -171,7 +171,6 @@ var BigSizeGallery = function ( obj, _links ) {
         },
         _init = function () {
             _buildSlider();
-            _addEvents();
             _obj[0].bigSizeGallery = _self;
         },
         _initSwiper = function(){
