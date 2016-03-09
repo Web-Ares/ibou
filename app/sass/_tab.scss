@@ -1,0 +1,159 @@
+/* ------------ tabs ------------ */
+.tabs {
+
+  &__controls {
+    position: relative;
+    padding: 40px 0;
+
+    &-main {
+      display: inline-block;
+      margin: 0 0 7px 4px;
+      @include transition( opacity, 0.3, 0 );
+      color: $tabs-controls-active-color;
+      font-size: 16px;
+      position: relative;
+      padding: 0 0 0 14px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      &:after {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        border: 4px solid transparent;
+        border-top: 5px solid #0072ff;
+        content: '';
+      }
+
+    }
+
+    &-wrap {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      z-index: 10;
+      color: $tabs-controls-color;
+      text-transform: uppercase;
+      font-size: 14px;
+      text-align: left;
+      border-radius: 3px;
+      border: 1px solid $tabs-controls-wrap-border;
+      background: $tabs-controls-wrap-bg;
+      padding: 10px;
+      opacity: 0;
+      visibility: hidden;
+      @include transition-opacity-visibility( 0.3, ease-in-out );
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      div.active .tabs__controls-item {
+        color: $tabs-controls-mobile-active-color;
+      }
+      div.active .tabs__position {
+        background: $tabs-position-active-bg;
+        color: $tabs-position-active-color;
+      }
+
+    }
+
+  }
+
+  &__position {
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    padding-top: 3px;
+    margin-top: -6px;
+    background: $tabs-position-mobile-bg;
+    color: $tabs-position-mobile-color;
+    border-radius: 50%;
+    font-size: 10px;
+    text-align: center;
+    @include transition-color-bg( 0.3, ease );
+
+  }
+
+  &__controls-item {
+    display: block;
+    padding: 5px 0;
+    @include transition( color, 0.3, 0 );
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .tabs {
+
+    &__controls {
+
+      &-main {
+        display: none;
+      }
+
+      &-wrap {
+        position: relative;
+        top: auto;
+        left: auto;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        border: none;
+        background: none;
+        opacity: 1;
+        visibility: visible;
+
+        div {
+          display: inline-block;
+          vertical-align: top;
+          width: 25%;
+          text-align: left;
+        }
+
+        div.active .tabs__controls-item {
+          color: $tabs-controls-active-color;
+        }
+
+      }
+
+    }
+
+    &__position {
+      width: 18px;
+      height: 18px;
+      padding-top: 3px;
+      margin: -12px 0 0 6px;
+      font-size: 12px;
+      background: $tabs-position-bg;
+      color: $tabs-position-color;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop_1600) {
+
+  .tabs {
+
+    &__controls {
+      padding: 85px 0 124px;
+    }
+
+  }
+
+}
+
+/* ------------ /tabs ------------ */

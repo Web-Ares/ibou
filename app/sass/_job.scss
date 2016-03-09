@@ -1,0 +1,198 @@
+/* ------------ jobs ------------ */
+.jobs {
+  padding-bottom: 30px;
+  color: $jobs-color;
+
+  &__head {
+    position: relative;
+    padding-bottom: 25.2%;
+    min-height: 150px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        content:'';
+    }
+
+  }
+
+  &__title {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    font-size: 22px;
+    @include main-font3();
+    @include transform-center();
+  }
+
+  &__wrap {
+    font-size: 16px;
+    padding-bottom: 30px;
+  }
+
+  &__caption {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  &__sub-caption {
+    margin-bottom: 10px;
+    color: $jobs-minor-color;
+    line-height: 1.444;
+  }
+
+  &__cover {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 10px;
+    @include main-font3();
+    text-transform: uppercase;
+    line-height: 1.444;
+  }
+
+  &__inner {
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    line-height: 1.56;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__inner_minor {
+    color: $jobs-minor-color;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  &__inline {
+    > div:first-child {
+      margin-bottom: 30px;
+    }
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .jobs {
+
+    &__title {
+      font-size: 36px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .jobs {
+
+    &__caption,
+    &__sub-caption,
+    &__cover {
+      padding-left: 315px;
+    }
+
+    &__caption {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    &__sub-caption {
+      margin-bottom: 63px;
+    }
+
+    &__wrap {
+      font-size: 18px;
+      padding-bottom: 50px;
+    }
+
+    &__cover {
+      position: relative;
+      margin-bottom: 56px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    &__inner {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 29px;
+      padding-left: 0;
+    }
+
+    &__inner_minor {
+      font-size: 16px;
+    }
+
+    &__name {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 285px;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .jobs {
+    padding-bottom: 48px;
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__inline {
+
+      > div {
+
+        &:first-child {
+          display: inline-block;
+          vertical-align: top;
+          width: 300px;
+          margin: 0 9px 0 0;
+        }
+
+        &:last-child {
+          display: inline-block;
+          vertical-align: top;
+          width: calc(100% - 320px);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/* ------------ /jobs ------------ */
