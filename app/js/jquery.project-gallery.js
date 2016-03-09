@@ -13,9 +13,9 @@ var ProjectGallery = function ( obj ) {
     var _self = this,
         _obj = obj,
         _previewWrap = _obj.find( '.project-gallery__preview' ),
-        _prevewItem = _previewWrap.find( '.swiper-slide' ),
-        _prevewBtnNext = _previewWrap.find( '.swiper-button-next'),
-        _prevewBtnPrev = _previewWrap.find( '.swiper-button-prev'),
+        _previewItem = _previewWrap.find( '.swiper-slide' ),
+        _previewBtnNext = _previewWrap.find( '.swiper-button-next' ),
+        _previewBtnPrev = _previewWrap.find( '.swiper-button-prev' ),
         _mainPicWrap = _obj.find( '.project-gallery__main' ),
         _swiper,
         _perView,
@@ -31,10 +31,10 @@ var ProjectGallery = function ( obj ) {
                 }
             });
 
-            _prevewItem.on({
+            _previewItem.on({
                 click: function(){
-                    var curLinkIndex = $( this ).index();
-                    _mainPicWrap[0].bigSizeGallery.slideSwiper( curLinkIndex );
+                    var curIndex = $( this ).index();
+                    _mainPicWrap[0].bigSizeGallery.slideSwiper( curIndex );
                     return false;
                 }
             })
@@ -57,8 +57,8 @@ var ProjectGallery = function ( obj ) {
             _swiper = new Swiper( _previewWrap, {
                 slidesPerView: _perView,
                 watchSlidesVisibility: true,
-                nextButton: _prevewBtnNext,
-                prevButton: _prevewBtnPrev,
+                nextButton: _previewBtnNext,
+                prevButton: _previewBtnPrev,
                 speed: 700
             });
 
@@ -81,7 +81,7 @@ var ProjectGallery = function ( obj ) {
         },
         _init = function () {
             _createSwiper();
-            new BigSizeGallery( _mainPicWrap, _prevewItem );
+            new BigSizeGallery( _mainPicWrap, _previewItem );
             _addEvents();
             _obj[0].obj = _self;
         },
@@ -112,10 +112,9 @@ var BigSizeGallery = function ( obj, _links ) {
         _swiperBtnPrev,
         _swiper;
 
-    var _addEvents = function () {},
-        _addVideo = function () {
+    var _addVideo = function () {
 
-            var src = _obj.find( '.swiper-slide-active').attr( 'data-src' ),
+            var src = _obj.find( '.swiper-slide-active' ).attr( 'data-src' ),
                 innerContent = $( '<iframe src="' + src + '"> frameborder="0" allowfullscreen></iframe>' );
 
             _obj.find( '.swiper-slide-active' ).find( '.project-gallery__main-video' ).append( innerContent );
@@ -132,25 +131,28 @@ var BigSizeGallery = function ( obj, _links ) {
             _addingVariables();
             _contentFilling();
             _initSwiper();
-            //_swiper.slideTo( index, 0 );
+            if ( _obj.find( '.swiper-slide-active' ).attr( 'data-src' ) != undefined ){
+                _addVideo();
+            }
         },
         _contentFilling = function(){
 
             $.each( _links, function(){
 
-                var innerContent, dataSRC;
+                var innerContent, dataSRC,
+                    curElem = $( this );
 
-                if ( $( this ).hasClass( 'swiper-slide_video' ) ){
+                if ( curElem.hasClass( 'swiper-slide_video' ) ){
 
                     innerContent = '<div class="project-gallery__main-video"/>\
                                         <span class="bounce-preloader"><span class="bounce-preloader__ball"></span></span>\
                                     </div>';
-                    dataSRC = 'data-src="' + $( this ).attr( "href" ) + '"';
+                    dataSRC = 'data-src="' + curElem.attr( "href" ) + '"';
 
                 } else {
 
                     innerContent = '';
-                    dataSRC = 'style="background-image: url(' + $( this ).attr( 'href' ) + ');"';
+                    dataSRC = 'style="background-image: url(' + curElem.attr( 'href' ) + ');"';
 
                 }
 
@@ -169,11 +171,6 @@ var BigSizeGallery = function ( obj, _links ) {
         },
         _init = function () {
             _buildSlider();
-
-            if ( _obj.find( '.swiper-slide-active').attr( 'data-src' ) != undefined ){
-                _addVideo();
-            }
-
             _addEvents();
             _obj[0].bigSizeGallery = _self;
         },
@@ -186,7 +183,7 @@ var BigSizeGallery = function ( obj, _links ) {
                 paginationClickable: true,
                 effect: 'fade',
                 onSlideChangeEnd: function(){
-                    var activeElem = _obj.find( '.swiper-slide-active').attr( 'data-src' );
+                    var activeElem = _obj.find( '.swiper-slide-active' ).attr( 'data-src' );
                     _removeVideo();
                     if ( activeElem != undefined ){
                         _addVideo();
