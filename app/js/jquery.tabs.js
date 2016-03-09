@@ -11,7 +11,6 @@ var Tabs = function ( obj ) {
     var _self = this,
         _obj = obj,
         _path = _obj.data( 'path' ),
-        _window = $( window ),
         _body = $( 'body' ),
         _head = _obj.find( '.tabs__controls-main' ),
         _tabBtn = _obj.find( '.tabs__controls-wrap > div' ),
@@ -21,12 +20,6 @@ var Tabs = function ( obj ) {
         _request = new XMLHttpRequest();
 
     var _addEvents = function () {
-
-            _window.on({
-                'load': function(){
-                    _showContentWhenLoading();
-                }
-            });
 
             _tabBtnInner.on({
                 mousedown: function(){
@@ -52,7 +45,7 @@ var Tabs = function ( obj ) {
                 click: function( event ){
                     _showControls();
                     event = event || window.event;
-                    if (event.stopPropagation) {
+                    if ( event.stopPropagation ) {
                         event.stopPropagation();
                     } else {
                         event.cancelBubble = true;
@@ -110,7 +103,12 @@ var Tabs = function ( obj ) {
             _head.html( '' );
             _head.text( txt );
         },
-        _showContentWhenLoading = function(){
+        _init = function () {
+            _showContentWhenLoad();
+            _addEvents();
+            _obj[0].obj = _self;
+        },
+        _showContentWhenLoad = function(){
             var index = _tabBtn.filter( '.active' ).index();
             if ( index == '-1' ){
                 index = 0;
@@ -145,10 +143,6 @@ var Tabs = function ( obj ) {
             } else {
                 _controls.addClass( 'active' );
             }
-        },
-        _init = function () {
-            _addEvents();
-            _obj[0].obj = _self;
         };
 
     _init();

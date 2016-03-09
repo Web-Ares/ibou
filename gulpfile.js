@@ -34,8 +34,7 @@ var paths = {
         {
             dist: 'about.min.js',
             contains: [
-                'app/js/jquery.main.js',
-                'app/js/jquery.about.js'
+                'app/js/jquery.main.js'
             ]
         },
         {
