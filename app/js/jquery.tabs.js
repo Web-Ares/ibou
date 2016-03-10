@@ -1,12 +1,12 @@
-$( function(){
+$( function() {
 
-    $.each( $( '.tabs' ), function(){
+    $.each( $( '.tabs' ), function() {
         new Tabs ( $( this ) )
     } );
 
 } );
 
-var Tabs = function ( obj ) {
+var Tabs = function( obj ) {
 
     var _self = this,
         _obj = obj,
@@ -19,16 +19,16 @@ var Tabs = function ( obj ) {
         _controls = _obj.find( '.tabs__controls-wrap' ),
         _request = new XMLHttpRequest();
 
-    var _addEvents = function () {
+    var _addEvents = function() {
 
             _tabBtnInner.on({
-                mousedown: function(){
-                    _tabContent.css({
+                mousedown: function() {
+                    _tabContent.css( {
                         height: _tabContent.innerHeight(),
                         overflow: hidden
-                    }, 1);
+                    }, 1 );
                 },
-                mouseup: function(){
+                mouseup: function() {
                     var curItem = $( this ),
                         parent = curItem.parent(),
                         index = parent.index(),
@@ -42,7 +42,7 @@ var Tabs = function ( obj ) {
             });
 
             _head.on({
-                click: function( event ){
+                click: function( event ) {
                     _showControls();
                     event = event || window.event;
                     if ( event.stopPropagation ) {
@@ -53,14 +53,14 @@ var Tabs = function ( obj ) {
                 }
             });
 
-            _body.on({
-                click: function(){
+            _body.on( {
+                click: function() {
                     _controls.removeClass( 'active' );
                 }
-            });
+            } );
 
         },
-        _ajaxRequest = function( dataID ){
+        _ajaxRequest = function( dataID ) {
 
             _request.abort();
             _request = $.ajax( {
@@ -71,12 +71,12 @@ var Tabs = function ( obj ) {
                 dataType: 'html',
                 timeout: 20000,
                 type: 'GET',
-                success: function ( msg ) {
+                success: function( msg ) {
 
                     _showContent( msg );
 
                 },
-                error: function ( XMLHttpRequest ) {
+                error: function( XMLHttpRequest ) {
                     if( XMLHttpRequest.statusText != 'abort' ) {
                         alert( 'Error!' );
                     }
@@ -84,31 +84,31 @@ var Tabs = function ( obj ) {
             });
 
         },
-        _calculateHeight = function( newWrapper ){
+        _calculateHeight = function( newWrapper ) {
 
-            _tabContent.animate({
+            _tabContent.animate( {
                 'height': newWrapper.innerHeight()
             }, {
                 duration: 300,
-                complete: function(){
+                complete: function() {
                     _tabContent.removeAttr( 'style' );
                 }
-            });
+            } );
 
         },
-        _changeText = function(){
+        _changeText = function() {
             var index = _tabBtn.filter( '.active' ).index(),
                 curElem = _tabBtn.eq( index ).find( 'span' ),
                 txt = curElem.text();
             _head.html( '' );
             _head.text( txt );
         },
-        _init = function () {
+        _init = function() {
             _showContentWhenLoad();
             _addEvents();
             _obj[0].obj = _self;
         },
-        _showContentWhenLoad = function(){
+        _showContentWhenLoad = function() {
             var index = _tabBtn.filter( '.active' ).index();
             if ( index == '-1' ){
                 index = 0;
@@ -116,7 +116,7 @@ var Tabs = function ( obj ) {
             }
             _changeText();
         },
-        _showContent = function( msg ){
+        _showContent = function( msg ) {
 
             var wrapper = _tabContent.find( '.tabs__content-wrap' ),
                 newWrapper = $( '<div class="tabs__content-wrap"/>' );
@@ -127,7 +127,7 @@ var Tabs = function ( obj ) {
                 opacity: 0
             },{
                 duration: 300,
-                complete: function(){
+                complete: function() {
                     wrapper.remove();
                     _tabContent.append( newWrapper );
                     _calculateHeight( newWrapper );
@@ -136,8 +136,8 @@ var Tabs = function ( obj ) {
             });
 
         },
-        _showControls = function(){
-            if ( _controls.hasClass( 'active' ) ){
+        _showControls = function() {
+            if ( _controls.hasClass( 'active' ) ) {
                 _controls.removeClass( 'active' );
                 return false;
             } else {
