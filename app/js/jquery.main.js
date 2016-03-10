@@ -16,11 +16,11 @@ $(function(){
 
         } );
 
-        $.each($( '.preloader' ), function () {
+        $.each( $( '.preloader' ), function () {
 
-            new Preloader($(this));
+            new Preloader( $( this ) );
 
-        });
+        } );
 
         $.each( $( '.site__to-top' ), function() {
 
@@ -34,17 +34,17 @@ $(function(){
 
         var _obj = obj,
             _delay = _obj.data( 'delay' ),
-            _window = $( window);
+            _window = $( window );
 
         var _onEvents = function () {
 
-                _window.on({
-                    load: function(){
+                _window.on( {
+                    load: function() {
 
-                        setTimeout(function () {
+                        setTimeout( function() {
                             _obj.addClass( 'hide' );
 
-                            setTimeout(function () {
+                            setTimeout( function() {
 
                                 _obj.remove()
 
@@ -53,11 +53,10 @@ $(function(){
                         }, _delay );
 
                     }
-                });
+                } );
 
             },
-
-            _init = function () {
+            _init = function() {
                 _onEvents();
             };
 
