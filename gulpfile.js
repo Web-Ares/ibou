@@ -38,6 +38,12 @@ var paths = {
             ]
         },
         {
+            dist: 'connect.min.js',
+            contains: [
+                'app/js/jquery.main.js'
+            ]
+        },
+        {
             dist: 'projects.min.js',
             contains: [
                 'app/js/jquery.main.js',
