@@ -42,13 +42,14 @@ $(function(){
                     load: function() {
 
                         setTimeout( function() {
-                            //_obj.addClass( 'hide' );
-                            //
-                            //setTimeout( function() {
-                            //
-                            //    _obj.remove()
-                            //
-                            //},400);
+
+                            _obj.addClass( 'hide' );
+
+                            setTimeout( function() {
+
+                                _obj.remove()
+
+                            },400);
 
                         }, _delay );
 
