@@ -15,10 +15,22 @@ var SliderSingle = function ( obj )   {
         _obj = obj,
         _sliderSwiper,
         _slider = _obj.find( '.swiper-container' ),
+        _btnPrev = _obj.find( '.swiper-container .swiper-button-prev' ),
+        _btnNext = _obj.find( '.swiper-container .swiper-button-next' ),
         _window = $( window );
 
     //private methods
-    var _init = function () {
+    var _hideButton = function() {
+
+            setTimeout( function() {
+
+                _btnPrev.addClass( 'hidden' );
+                _btnNext.addClass( 'hidden' );
+
+            }, 3000 )
+
+        },
+        _init = function () {
 
             _onEvents();
             _obj[0].obj = _self;
@@ -28,8 +40,8 @@ var SliderSingle = function ( obj )   {
 
             _sliderSwiper = new Swiper(_slider, {
                 pagination: '.swiper-pagination',
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
+                nextButton: _btnNext,
+                prevButton: _btnPrev,
                 paginationClickable: true,
                 effect: 'coverflow',
                 loop: true,
@@ -50,6 +62,7 @@ var SliderSingle = function ( obj )   {
                 load: function () {
 
                     _initSlider();
+                    _hideButton();
 
                 }
             } );

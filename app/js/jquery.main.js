@@ -22,9 +22,9 @@ $( function() {
 
         } );
 
-        $.each( $( '.site__to-top' ), function() {
+        $.each( $( '.site_to-block' ), function() {
 
-            new ToTop ( $( this ) );
+            new ToBlock ( $( this ) );
 
         } );
 
@@ -173,20 +173,20 @@ $( function() {
         _init();
     };
 
-    var ToTop = function( obj ) {
+    var ToBlock = function( obj ) {
 
         //private properties
         var _self = this,
-            _toTop = obj,
-            _dom = $( 'html, body' );
+            _toBlock = obj,
+            _dom = $( 'html, body');
 
         //private methods
         var _addEvents = function() {
 
-                _toTop.on( {
+                _toBlock.on( {
                     click: function() {
 
-                        _scrollToTop();
+                        _scrollToBlock( $( this ) );
 
                         return false;
                     }
@@ -195,14 +195,17 @@ $( function() {
             },
             _init = function() {
 
-                _toTop[ 0 ].obj = _self;
+                _toBlock[ 0 ].obj = _self;
                 _addEvents();
 
             },
-            _scrollToTop = function ()  {
+            _scrollToBlock = function ( elem )  {
+
+                var curItem = elem,
+                    blockToScroll = $( '.' + curItem.data( 'block' ) );
 
                 _dom.stop( true, false );
-                _dom.animate( { scrollTop: 0  }, 300 );
+                _dom.animate( { scrollTop: blockToScroll.offset().top  }, 300 );
 
             };
 
