@@ -26,21 +26,9 @@
 }
 
 //transform
-@mixin transform-center() {
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-@mixin transformX-center() {
-  -webkit-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-}
-@mixin transformY-center() {
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-}
-@mixin transformY( $posY ) {
-  -webkit-transform: translate(0, $posY);
-  transform: translate(0, $posY);
+@mixin transform-translate( $posX, $posY ) {
+  -webkit-transform: translate($posX, $posY);
+  transform: translate($posX, $posY);
 }
 @mixin transform-rotate( $deg ) {
   -webkit-transform: rotate( $deg + deg );

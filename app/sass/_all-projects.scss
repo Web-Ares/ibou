@@ -1,6 +1,7 @@
 .projects {
   padding: 40px 0;
   @include main-font2();
+
   &__filters {
     margin: 0 0 30px;
     font-size: 14px;
@@ -8,18 +9,22 @@
     text-align: center;
     text-transform: uppercase;
   }
+
   &__filters-item {
     display: inline-block;
     vertical-align: top;
     margin: 0 16px 10px;
     color: $filter-item-color;
+
     &.active{
       color: $filter-item-active-color;
     }
   }
+
   &__items {
     margin: 0 -26px;
   }
+
   &__item-wrap {
     display: inline-block;
     vertical-align: top;
@@ -29,6 +34,7 @@
     height: 300px;
     margin: 0 0 30px;
   }
+
   &__item{
     position: absolute;
     top: 0;
@@ -39,6 +45,7 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
   &__text {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -65,6 +72,7 @@
     font-size: 20px;
     line-height: 20px;
     @include transition( opacity, 0.2, 0 );
+
     &:before,
     &:after {
       opacity: 0;
@@ -77,6 +85,7 @@
       transition: opacity 0.35s 0.2s, transform 0.35s 0.2s;
       content: '';
     }
+
     &:before {
       border-bottom: 4px solid $project-text-border-color;
       -webkit-transform: scale(0,1);
@@ -84,6 +93,7 @@
       -webkit-transform-origin: 0 0;
       transform-origin: 0 0;
     }
+
     &:after {
       border-right: 4px solid $project-text-border-color;
       -webkit-transform: scale(1,0);
@@ -91,20 +101,24 @@
       -webkit-transform-origin: 100% 0;
       transform-origin: 100% 0;
     }
+
     &:hover:before,
     &:hover:after {
       opacity: 1;
       -webkit-transform: scale(1);
       transform: scale(1);
     }
+
     >span {
       display: block;
       opacity: 0;
       text-align: center;
       @include transition( opacity, 0.4, 0.2 );
     }
+
     &:hover {
       opacity: 1;
+
       span {
         opacity: 1;
       }
@@ -115,19 +129,24 @@
 @media (min-width: $tablet-portrait) {
   .projects {
     padding: 84px 0;
+
     &__filters {
       margin: 0 0 44px;
     }
+
     &__items {
       margin: 0 -14px;
     }
+
     &__item-wrap {
       width: 50%;
       height: 338px;
+
       &_big {
         height: 706px;
       }
     }
+
     &__item{
       top: 0;
       right: 15px;

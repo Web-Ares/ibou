@@ -18,15 +18,10 @@ var SliderSingle = function ( obj )   {
         _window = $( window );
 
     //private methods
-    var _onEvents = function () {
+    var _init = function () {
 
-            _window.on( {
-                'load': function () {
-
-                    _initSlider();
-
-                }
-            } );
+            _onEvents();
+            _obj[0].obj = _self;
 
         },
         _initSlider = function () {
@@ -49,10 +44,15 @@ var SliderSingle = function ( obj )   {
             } );
 
         },
-        _init = function () {
+        _onEvents = function () {
 
-            _onEvents();
-            _obj[0].obj = _self;
+            _window.on( {
+                load: function () {
+
+                    _initSlider();
+
+                }
+            } );
 
         };
 

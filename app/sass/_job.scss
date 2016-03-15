@@ -30,7 +30,7 @@
     left: 50%;
     font-size: 22px;
     @include main-font3();
-    @include transform-center();
+    @include transform-translate( -50%, -50% );
   }
 
   &__wrap {
