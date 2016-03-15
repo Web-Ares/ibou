@@ -26,7 +26,7 @@ var ProjectGallery = function ( obj ) {
 
             _window.on({
                 resize: function(){
-                    _windowWidth = $( window ).width() + _getScrollWidth();
+                    _windowWidth = _window.width() + _getScrollWidth();
                     _updateSwiper();
                 }
             });
