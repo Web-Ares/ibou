@@ -108,9 +108,11 @@
       position: relative;
       top: auto;
       right: auto;
+      text-align: left;
     }
 
     dt {
+      margin-bottom: 10px;
       @include main-font3();
     }
 
@@ -169,6 +171,10 @@
       > *:nth-child(2) {
         padding-right: 0;
         padding-left: 15px;
+      }
+
+      dt {
+        margin-bottom: 0;
       }
 
     }
