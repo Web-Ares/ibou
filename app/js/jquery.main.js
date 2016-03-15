@@ -1,8 +1,8 @@
-$(function(){
+$( function() {
 
     'use strict';
 
-    $(function(){
+    $( function() {
 
         $.each( $('.full-height'), function () {
 
@@ -28,7 +28,7 @@ $(function(){
 
         } );
 
-    });
+    } );
 
     var Preloader = function ( obj ) {
 
@@ -140,11 +140,6 @@ $(function(){
                     'resize': function () {
 
                         _resetStyle();
-
-                    },
-                    'scroll': function () {
-
-
 
                     }
                 } );
