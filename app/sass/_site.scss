@@ -161,7 +161,7 @@
       margin-top: -2px;
       background: $menu-btn-background;
       font-size: 0;
-      @include transition( background-color, 0.3, 0 );
+      transition: background-color 0.3s linear;
       &:before,
       &:after {
         position: absolute;
@@ -259,7 +259,7 @@
       background: $footer-connect-border-color;
       content: '';
       @include transform-translate( -50%, 0 );
-      @include transition( width, 0.3, 0 );
+      transition: width 0.3s linear;
     }
 
     &:hover:after {
@@ -289,7 +289,7 @@
       background: $footer-to-top-separate-background;
       content: '';
       @include transform-translate( -50%, 0 );
-      @include transition( width, 0.2, 0 );
+      transition: width 0.3s linear;
     }
 
     &:hover:after {
@@ -343,7 +343,7 @@
       background: $site-link-border;
       content: '';
       @include transform-translate( -50%, 0 );
-      @include transition( width, 0.3, 0 );
+      transition: width 0.3s linear;
     }
 
     &:hover:after {

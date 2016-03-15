@@ -43,7 +43,7 @@
       border-top: 2px solid $slider-button-background;
       border-right: 2px solid $slider-button-background;
       @include transform-rotate( -135 );
-      @include transition( border, 0.2, 0 );
+      transition: border 0.2s linear;
       content: '';
     }
 
