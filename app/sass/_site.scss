@@ -10,7 +10,7 @@
   &__content {
     position: relative;
     z-index: 2;
-    padding: 0 0 90px;
+    padding: 0 0 100px;
   }
 
   &__header {
@@ -37,7 +37,24 @@
     right: 0;
     bottom: 0;
     left: 0;
-    height: 90px;
+    height: 100px;
+
+    &-crafted {
+      position: absolute;
+      bottom: 15px;
+      right: 30px;
+      font-size: 12px;
+      line-height: 12px;
+      color: $footer-crafted-color1;
+
+      a {
+        color: $footer-crafted-color2;
+
+        &:hover {
+          color: $footer-crafted-hover-color2;
+        }
+      }
+    }
   }
 
   &__footer-layout {
@@ -46,7 +63,7 @@
     max-width: 1860px;
     padding: 0 30px;
     margin: 0 auto;
-    height: 90px;
+    height: 100px;
   }
 
   &__centered {
