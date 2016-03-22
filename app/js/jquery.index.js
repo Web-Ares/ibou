@@ -6,6 +6,12 @@ $( function () {
 
     } );
 
+    $.each( $( '.movie-slider__description' ), function() {
+
+        new ShowDescription ( $( this ) );
+
+    } );
+
 } );
 
 var SliderSingle = function ( obj )   {
@@ -66,6 +72,60 @@ var SliderSingle = function ( obj )   {
 
                 }
             } );
+
+        };
+
+    _init();
+};
+
+var ShowDescription = function( obj ) {
+
+    //private properties
+    var _self = this,
+        _obj = obj,
+        _btn = _obj.find( 'span'),
+        _description = _obj.find( '.movie-slider__text'),
+        _scroll = null;
+
+    //private methods
+    var _addEvents = function() {
+
+            _btn.on( {
+                click: function() {
+
+                    _changeClass( $( this ) );
+
+                    return false;
+                }
+            } );
+
+        },
+        _addNiceScroll = function() {
+            _scroll = _description.niceScroll({
+                enablemousewheel: true
+            });
+        },
+        _init = function() {
+
+            _obj[ 0 ].obj = _self;
+            _addEvents();
+            _addNiceScroll();
+
+        },
+        _changeClass = function ( elem )  {
+
+            var curItem = elem;
+
+            if( curItem.hasClass( 'opened' ) ){
+                curItem.removeClass( 'opened' );
+
+            } else {
+                curItem.addClass( 'opened' );
+
+                setTimeout( function() {
+                    _description.getNiceScroll().resize();
+                }, 300 );
+            }
 
         };
 

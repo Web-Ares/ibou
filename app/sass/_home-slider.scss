@@ -16,6 +16,7 @@
     @include flexbox();
     @include flex-wrap( wrap );
     @include justify-content( center );
+    @include flex-direction( column );
     @include align-items( center );
     background-size: cover;
     background-repeat: no-repeat;
@@ -88,7 +89,7 @@
     color: $description-text-color;
     text-align: left;
 
-    &:after{
+    span{
       position: absolute;
       top: 7px;
       left: 7px;
@@ -101,10 +102,25 @@
       border: 1px solid #fff;
       border-radius: 46px;
       box-shadow: 0 0 10px 0 $description-box-shadow-color;
-      content: '';
-      strong{
-        @include main-font2();
+      text-indent: -9999px;
+      cursor: pointer;
+
+      &.opened + .movie-slider__text {
+        opacity: 1;
+        height: 130px;
       }
+    }
+  }
+
+  &__text {
+    opacity: 0;
+    height: 0;
+    padding: 0 10px 0 0;
+    -webkit-transition: opacity 0.3s linear, height 0.3s linear;
+    transition: opacity 0.3s linear, height 0.3s linear;
+
+    strong{
+      @include main-font2();
     }
   }
 }
@@ -118,11 +134,14 @@
     }
 
     &__description {
-      width: 326px;
+      position: absolute;
+      bottom: 0;
+      left: 27px;
+      width: 336px;
+      min-height: 0;
       padding: 55px 0 0 60px;
       font-size: 18px;
       line-height: 26px;
-      @include align-self( flex-start );
     }
 
     .site__title{
@@ -130,8 +149,8 @@
       @include flex-wrap( wrap );
       @include justify-content( center );
       @include align-items( center );
-      @include flex( 1 1 auto );
       @include transform-translate( 0, 13% );
+      padding: 0 0 130px;
     }
 
     .swiper-controls {
