@@ -118,6 +118,40 @@
 
   }
 
+  &__back {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0 0 15px;
+    padding: 0 0 0 15px;
+    text-transform: uppercase;
+    color: #4e4e4e;
+    font-size: 15px;
+    line-height: 18px;
+
+    &:after {
+      position: absolute;
+      left: 0;
+      top: 40%;
+      width: 7px;
+      height: 7px;
+      border-top: 2px solid #0071fb;
+      border-left: 2px solid #0071fb;
+      content: '';
+      -webkit-transform: translate( 0, -50% ) rotate( -45deg );
+      transform: translate( 0, -50% ) rotate( -45deg );
+      -webkit-transition: -webkit-transform 0.1s linear;
+      transition: transform 0.1s linear;
+    }
+
+    &:hover {
+      &:after {
+        -webkit-transform: translate( -4px, -50% ) rotate( -45deg );
+        transform: translate( -4px, -50% ) rotate( -45deg );
+      }
+    }
+  }
+
 }
 
 @media (min-width: $phone-landscape) {
@@ -186,6 +220,8 @@
 @media (min-width: $tablet-landscape) {
 
   .single-project {
+
+    padding: 138px 0 30px;
 
     &__description {
       text-align: justify;

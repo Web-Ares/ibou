@@ -59,8 +59,17 @@ var ProjectGallery = function ( obj ) {
                 watchSlidesVisibility: true,
                 nextButton: _previewBtnNext,
                 prevButton: _previewBtnPrev,
-                speed: 700
+                speed: 700,
+                onClick: function ( swiper ) {
+                    var clicked = swiper.clickedIndex;
+                    swiper.activeIndex = clicked;
+                    swiper.updateClasses();
+                    $(swiper.slides).removeClass( 'is-selected' );
+                    $(swiper.clickedSlide).addClass( 'is-selected' );
+                }
             });
+
+            _previewItem.eq( 0 ).addClass( 'is-selected' )
 
         },
         _getScrollWidth = function(){
