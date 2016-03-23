@@ -23,6 +23,7 @@ var SliderSingle = function ( obj )   {
         _slider = _obj.find( '.swiper-container' ),
         _btnPrev = _obj.find( '.swiper-container .swiper-button-prev' ),
         _btnNext = _obj.find( '.swiper-container .swiper-button-next' ),
+        _description = _obj.find( '.movie-slider__description' ),
         _window = $( window );
 
     //private methods
@@ -48,7 +49,9 @@ var SliderSingle = function ( obj )   {
                 pagination: '.swiper-pagination',
                 nextButton: _btnNext,
                 prevButton: _btnPrev,
+                autoplay: 6000,
                 paginationClickable: true,
+                autoplayDisableOnInteraction: false,
                 effect: 'coverflow',
                 loop: true,
                 coverflow: {
@@ -64,11 +67,26 @@ var SliderSingle = function ( obj )   {
         },
         _onEvents = function () {
 
+            _description.on( {
+                mouseenter: function() {
+                    _sliderSwiper.stopAutoplay();
+                },
+                mouseleave: function() {
+                    _sliderSwiper.startAutoplay();
+                }
+            } );
+
             _window.on( {
                 load: function () {
 
                     _initSlider();
                     _hideButton();
+
+                    if( _window.width() >= 992 ) {
+                        _sliderSwiper.startAutoplay();
+                    } else {
+                        _sliderSwiper.stopAutoplay();
+                    }
 
                 }
             } );
