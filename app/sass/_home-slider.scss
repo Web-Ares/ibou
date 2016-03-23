@@ -104,6 +104,12 @@
       box-shadow: 0 0 10px 0 $description-box-shadow-color;
       text-indent: -9999px;
       cursor: pointer;
+      -webkit-transition: -webkit-transform 0.3s linear;
+      transition: transform 0.3s linear;
+
+      &.opened {
+        @include transform-rotate( 45 );
+      }
 
       &.opened + .movie-slider__text {
         opacity: 1;
