@@ -32,111 +32,53 @@
         }
         .preloader__wrap {
             position:absolute;
-            width:350px;
-            height:70px;
+            width:100px;
+            height: 118px;
             left:50%;
             top:50%;
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            overflow:hidden;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            cursor: default;
+            perspective: 1000px;
         }
-        .preloader__wrap div {
-            position: absolute;
-            width: 30px;
-            height: 46px;
-            opacity: 0;
-            font-family: "Nexa Regular", sans-serif;
-            font-size: 26px;
-            color: #fff;
-            -webkit-animation: move 2.5s linear infinite;
-            animation: move 2.5s linear infinite;
-            -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-            -webkit-animation-delay: -1.8s;
-            animation-delay: -1.8s;
+        .preloader__wrap > svg {
+            position:absolute;
+            width: 100%;
+            transform-style: preserve-3d;
+            -webkit-animation: flip 3s infinite;
+            animation: flip 3s infinite;
         }
-        .preloader__wrap div:nth-child(2) {
-            -webkit-animation-delay: -1.5s;
-            animation-delay: -1.5s;
-
-        }
-        .preloader__wrap div:nth-child(3) {
-            -webkit-animation-delay: -1.2s;
-            animation-delay: -1.2s;
-
-        }
-        .preloader__wrap div:nth-child(4) {
-            -webkit-animation-delay: -0.9s;
-            animation-delay: -0.9s;
-        }
-        .preloader__wrap div:nth-child(5) {
-            -webkit-animation-delay: -0.6s;
-            animation-delay: -0.6s;
-        }
-        .preloader__wrap div:nth-child(6) {
-            -webkit-animation-delay: -0.3s;
-            animation-delay: -0.3s;
-        }
-        .preloader__wrap div:nth-child(7) {
-            -webkit-animation-delay:0s;
-            animation-delay:0s;
-        }
-
-        @-webkit-keyframes move {
+        @-webkit-keyframes flip {
             0% {
-                left:0;
-                opacity:0;
+                -webkit-transform: rotateY(0deg);
             }
             30% {
-                left:41%;
-                -webkit-transform:rotate(0deg);
-                opacity:1;
+                -webkit-transform: rotateY(180deg);
             }
-            65% {
-                left:59%;
-                -webkit-transform:rotate(0deg);
-                opacity:1;
+            50% {
+                -webkit-transform: rotateY(180deg);
             }
-            90% {
-                left:100%;
-                transform:rotate(-180deg);
-                opacity:0;
+            80% {
+                -webkit-transform: rotateY(360deg);
             }
             100% {
-                left:100%;
-                transform:rotate(-180deg);
-                opacity:0;
+                -webkit-transform: rotateY(360deg);
             }
         }
-        @keyframes move {
+        @keyframes flip {
             0% {
-                left:0;
-                opacity:0;
+                transform: rotateY(0deg);
             }
             30% {
-                left: 41%;
-                transform:rotate(0deg);
-                opacity:1;
+                transform: rotateY(180deg);
             }
-            65% {
-                left:59%;
-                transform:rotate(0deg);
-                opacity:1;
+            50% {
+                transform: rotateY(180deg);
             }
-            90% {
-                left:100%;
-                transform:rotate(-180deg);
-                opacity:0;
+            80% {
+                transform: rotateY(360deg);
             }
             100% {
-                left:100%;
-                transform:rotate(-180deg);
-                opacity:0;
+                transform: rotateY(360deg);
             }
         }
         /*------------/preloader---------*/
@@ -145,8 +87,13 @@
 
             /*---------preloader--------*/
             .preloader__wrap {
-                width:400px;
-                overflow: visible;
+                position:absolute;
+                width:200px;
+                height: 237px;
+                left:50%;
+                top:50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
             }
             /*---------/preloader--------*/
 
@@ -161,17 +108,42 @@
     <div class="site">
 
         <!--preloader-->
-        <div class="preloader" data-delay="2000">
+        <div class="preloader" data-delay="0">
 
             <!--preloader__wrap-->
             <div class="preloader__wrap">
-                <div>G</div>
-                <div>N</div>
-                <div>I</div>
-                <div>D</div>
-                <div>A</div>
-                <div>O</div>
-                <div>L</div>
+
+                <svg viewBox="0 0 614 717.667" >
+                    <path fill="#fff" d="M599.712,638.859c-15.42,0.063-30.834,0.359-46.254,0.748c10.227-9.91,21.729-17.654,35.17-24.453
+                            c5.502-2.783,15.469-12,4.992-15.83c-10.656-3.896-24.232,0.416-33.795,5.254c-19.191,9.709-36.449,21.422-51.135,36.535
+                            c0,0-36.646,1.039-41.438,1.227c-0.256-0.617-0.418-0.986-0.418-0.986s12.297-12.322,21.877-10.932
+                            c9.563,1.375,20.494,13.684,17.773-6.838c-2.732-20.51,23.221-28.717,25.973-35.537c2.727-6.85-15.041-17.773-15.041-17.773
+                            l6.836-8.199c6.828-8.213,15.033-16.416,19.223-34.184c6.928,0-0.088-24.594-3.273-34.162c9.107-5.482-3.643-28.711-3.643-28.711
+                            s8.195-8.209,0-20.512c-8.213-12.295-10.938-25.979-10.938-25.979l4.084-8.207c0-23.234-30.064-77.91-46.475-94.314
+                            c5.479-9.559-1.357-24.605-6.826-39.641c17.768-9.563,20.51-4.109,32.801,0c6.844-28.713-6.83-39.643-6.83-39.643l16.188-10.947
+                            c-1.576-6.826-5.25-9.561-21.648-15.033c17.768-61.51-5.453-108.003-5.453-108.003h21.176c-21.174,0-11.635-19.133-11.635-19.133
+                            S514.685,64.478,498.274,59c10.934-13.669,16.408-38.269,13.676-58.997c-13.676,17.54-46.482,9.778-62.873,4.32
+                            C345.159-12.088,274.083,23.45,274.083,23.45S202.999-12.088,99.097,4.323c-16.4,5.458-49.207,13.22-62.881-4.32
+                            C33.482,20.731,38.959,45.331,49.89,59c-16.408,5.479-2.727,24.605-2.727,24.605s9.539,19.133-11.634,19.133h21.173
+                            c0,0-23.22,46.493-5.445,108.003c-16.4,5.473-20.081,8.207-21.651,15.033l16.182,10.947c0,0-13.674,10.93-6.829,39.643
+                            c12.298-4.109,15.033-9.563,32.799,0c-5.461,15.033-12.289,30.082-6.828,39.641c-16.408,16.404-46.473,71.08-46.473,94.314
+                            l4.094,8.207c0,0-2.734,13.686-10.931,25.979c-8.212,12.303,0,20.512,0,20.512s-12.758,23.229-3.657,28.711
+                            c-3.187,9.568-10.202,34.162-3.277,34.162c4.2,17.768,12.396,25.971,19.233,34.184l6.836,8.199c0,0-17.775,10.926-15.049,17.773
+                            c2.751,6.82,28.714,15.027,25.979,35.537c-2.726,20.521,8.205,8.213,17.784,6.838c9.563-1.393,21.869,10.932,21.869,10.932
+                            s-2.244,5.066-3.813,10.982c-6.066-0.385-12.133-0.717-18.201-1.182c-20.454-1.57-50.381,27.893-17.832,30.385
+                            c30.858,2.371,61.693,3.584,92.514,4.037c1.35,1.066,3.035,2.18,4.969,3.068l3.626,18.654l6.168-17.412
+                            c2.409-0.559,4.907-1.867,7.404-4.182c2.039,0.006,4.078,0.039,6.116,0.037c4.134,4.146,9.531,7.77,15.345,9.861l3.883,19.979
+                            l6.416-18.111c5.895-0.021,11.663-2.066,16.434-7.211c2.655,2.773,9.867,7.74,18.158,10.254l3.337,17.154l5.557-15.682
+                            c8.996,0.213,17.844-4.064,22.698-18.158c13.12-0.516,26.24-1.121,39.359-1.781c4.302,14.186,12.355,19.35,20.865,19.949
+                            l5.551,15.672l3.203-16.469c9.338-2.156,17.785-7.883,20.713-10.939c4.104,4.428,8.945,6.561,13.973,7.092l6.461,18.23l3.721-19.146
+                            c8.348-2.291,16.182-7.938,20.955-14.082c2.566,3.338,5.186,5.42,7.742,6.604l6.494,18.34l3.438-17.674
+                            c5.168-1.486,9.133-5.254,10.494-6.686c33.58,7.627,61.043,15.342,66.191,16.996c11.836,3.799,55.025-14.756,39.111-19.902
+                            c-22.604-7.299-11.879-3.965-34.904-9.613c40.891-1.551,80.906-1.156,94.396-1.166C601.872,669.248,632.196,638.716,599.712,638.859
+                             M71.006,160.17c0-52.351,42.436-94.792,94.791-94.792c52.33,0,94.758,42.441,94.758,94.792c0,52.333-42.428,94.775-94.758,94.775
+                            C113.442,254.945,71.006,212.503,71.006,160.17 M381.585,254.945c-52.324,0-94.758-42.441-94.758-94.775
+                            c0-52.351,42.434-94.792,94.758-94.792c52.338,0,94.781,42.441,94.781,94.792C476.366,212.503,433.923,254.945,381.585,254.945"/>
+                </svg>
+
             </div>
             <!--/preloader__wrap-->
 
