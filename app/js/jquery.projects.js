@@ -21,6 +21,14 @@ var Filter = function ( obj )   {
     //private methods
     var _onEvents = function () {
 
+            _window.on( {
+                'load': function () {
+
+                    _initIsotope();
+
+                }
+            } );
+
             _filterBtn.on( {
                 'click': function () {
 
@@ -59,9 +67,8 @@ var Filter = function ( obj )   {
         },
         _init = function () {
 
-            _obj[0].obj = _self;
             _onEvents();
-            _initIsotope();
+            _obj[0].obj = _self;
 
         };
 

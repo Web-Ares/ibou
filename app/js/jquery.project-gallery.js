@@ -26,7 +26,7 @@ var ProjectGallery = function ( obj ) {
 
             _window.on({
                 resize: function(){
-                    _windowWidth = _window.width() + _getScrollWidth();
+                    _windowWidth = $( window ).width() + _getScrollWidth();
                     _updateSwiper();
                 }
             });
@@ -59,17 +59,8 @@ var ProjectGallery = function ( obj ) {
                 watchSlidesVisibility: true,
                 nextButton: _previewBtnNext,
                 prevButton: _previewBtnPrev,
-                speed: 700,
-                onClick: function ( swiper ) {
-                    var clicked = swiper.clickedIndex;
-                    swiper.activeIndex = clicked;
-                    swiper.updateClasses();
-                    $(swiper.slides).removeClass( 'is-selected' );
-                    $(swiper.clickedSlide).addClass( 'is-selected' );
-                }
+                speed: 700
             });
-
-            _previewItem.eq( 0 ).addClass( 'is-selected' )
 
         },
         _getScrollWidth = function(){

@@ -6,12 +6,6 @@ $( function () {
 
     } );
 
-    $.each( $( '.movie-slider__description' ), function() {
-
-        new ShowDescription ( $( this ) );
-
-    } );
-
 } );
 
 var SliderSingle = function ( obj )   {
@@ -21,37 +15,27 @@ var SliderSingle = function ( obj )   {
         _obj = obj,
         _sliderSwiper,
         _slider = _obj.find( '.swiper-container' ),
-        _btnPrev = _obj.find( '.swiper-container .swiper-button-prev' ),
-        _btnNext = _obj.find( '.swiper-container .swiper-button-next' ),
-        _description = _obj.find( '.movie-slider__description' ),
         _window = $( window );
 
     //private methods
-    var _hideButton = function() {
+    var _onEvents = function () {
 
-            setTimeout( function() {
+            _window.on( {
+                'load': function () {
 
-                _btnPrev.addClass( 'hidden' );
-                _btnNext.addClass( 'hidden' );
+                    _initSlider();
 
-            }, 3000 )
-
-        },
-        _init = function () {
-
-            _onEvents();
-            _obj[0].obj = _self;
+                }
+            } );
 
         },
         _initSlider = function () {
 
             _sliderSwiper = new Swiper(_slider, {
                 pagination: '.swiper-pagination',
-                nextButton: _btnNext,
-                prevButton: _btnPrev,
-                autoplay: 6000,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
                 paginationClickable: true,
-                autoplayDisableOnInteraction: false,
                 effect: 'coverflow',
                 loop: true,
                 coverflow: {
@@ -65,85 +49,10 @@ var SliderSingle = function ( obj )   {
             } );
 
         },
-        _onEvents = function () {
+        _init = function () {
 
-            _description.on( {
-                mouseenter: function() {
-                    _sliderSwiper.stopAutoplay();
-                },
-                mouseleave: function() {
-                    _sliderSwiper.startAutoplay();
-                }
-            } );
-
-            _window.on( {
-                load: function () {
-
-                    _initSlider();
-                    _hideButton();
-
-                    if( _window.width() >= 992 ) {
-                        _sliderSwiper.startAutoplay();
-                    } else {
-                        _sliderSwiper.stopAutoplay();
-                    }
-
-                }
-            } );
-
-        };
-
-    _init();
-};
-
-var ShowDescription = function( obj ) {
-
-    //private properties
-    var _self = this,
-        _obj = obj,
-        _btn = _obj.find( 'span'),
-        _description = _obj.find( '.movie-slider__text'),
-        _scroll = null;
-
-    //private methods
-    var _addEvents = function() {
-
-            _btn.on( {
-                click: function() {
-
-                    _changeClass( $( this ) );
-
-                    return false;
-                }
-            } );
-
-        },
-        _addNiceScroll = function() {
-            _scroll = _description.niceScroll({
-                enablemousewheel: true
-            });
-        },
-        _init = function() {
-
-            _obj[ 0 ].obj = _self;
-            _addEvents();
-            _addNiceScroll();
-
-        },
-        _changeClass = function ( elem )  {
-
-            var curItem = elem;
-
-            if( curItem.hasClass( 'opened' ) ){
-                curItem.removeClass( 'opened' );
-
-            } else {
-                curItem.addClass( 'opened' );
-
-                setTimeout( function() {
-                    _description.getNiceScroll().resize();
-                }, 300 );
-            }
+            _onEvents();
+            _obj[0].obj = _self;
 
         };
 
