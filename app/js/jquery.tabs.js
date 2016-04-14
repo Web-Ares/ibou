@@ -25,7 +25,7 @@ var Tabs = function( obj ) {
                 mousedown: function() {
                     _tabContent.css( {
                         height: _tabContent.innerHeight(),
-                        overflow: hidden
+                        overflow: 'hidden'
                     }, 1 );
                 },
                 mouseup: function() {

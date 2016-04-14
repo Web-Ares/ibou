@@ -5,7 +5,7 @@ $menu-border-color: #0072ff;
 $title-color: #fff;
 $footer-connect-border-color: #0072ff;
 $footer-crafted-color1: #868686;
-$footer-crafted-color2: rgba(134, 134, 134, 0.58);
+$footer-crafted-color2: rgba(255, 255, 255, 0.65);
 $footer-crafted-hover-color2: #868686;
 $site-list-color: #bbb;
 $site-link-color: #fff;
@@ -48,8 +48,12 @@ $about-us-title-color: #fff;
 $filter-item-color: #666666;
 $filter-item-active-color: #fff;
 $project-text-color: #fff;
-$project-text-background: rgba(0, 114, 255, 0.6);
+$project-text-background: rgba(95, 95, 95, 0.7);
 $project-text-border-color: #fff;
+
+//projects-gallary
+$hover-item-back: rgba(0,0,0,0.7);
+$active-item-back: rgba(95, 95, 95, 0.6);
 
 //jobs
 $jobs-color: #fff;
@@ -71,5 +75,5 @@ $tabs-position-active-bg: #0072ff;
 //aconnect
 $connect-content-color: #fff;
 $connect-title-color: #fff;
-$connect-sub-title-color: #444;
+$connect-sub-title-color: #666;
 $connect-person-post-color: #666;
