@@ -1,3 +1,10 @@
+window.requestAnimFrame = (function(){
+    return  window.requestAnimationFrame ||
+        function(callback){
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+
 $( function() {
 
     'use strict';
@@ -29,12 +36,14 @@ $( function() {
         } );
 
 
-
     } );
 
     var Preloader = function ( obj ) {
 
         var _obj = obj,
+            _loader = _obj.find( '.preloader__bar' ),
+            _flag = false,
+            _loadFlag = false,
             _delay = _obj.data( 'delay' ),
             _window = $( window );
 
@@ -43,17 +52,19 @@ $( function() {
                 _window.on( {
                     load: function() {
 
-                        setTimeout( function() {
+                        _loadFlag = true;
 
-                            _obj.addClass( 'hide' );
-
-                            setTimeout( function() {
-
-                                _obj.remove()
-
-                            },400);
-
-                        }, _delay );
+                        //setTimeout( function() {
+                        //
+                        //    _obj.addClass( 'hide' );
+                        //
+                        //    setTimeout( function() {
+                        //
+                        //        _obj.remove();
+                        //
+                        //    },400);
+                        //
+                        //}, _delay );
 
                     }
                 } );
@@ -61,6 +72,53 @@ $( function() {
             },
             _init = function() {
                 _onEvents();
+                _loadBar();
+            },
+            _loadBar = function (){
+
+                var firstLoadVal = Math.floor(Math.random() * 10) + 1,
+                    curValue = firstLoadVal;
+
+                _loader.animate({'width':''+firstLoadVal+'%'}, 200);
+
+                setTimeout(function () {
+
+                    setInterval(function () {
+
+                        var loadVal = Math.floor(Math.random() * 90) + 1;
+
+                        if(loadVal<90 && loadVal>curValue){
+
+                            curValue = loadVal;
+
+                            _loader.animate({'width':''+loadVal+'%'}, 200);
+
+                        }
+
+                    }, 500);
+
+                }, 1000);
+
+                setInterval(function (){
+                    if(_loadFlag){
+
+                        _loader.animate({'width': 100+'%'}, 200);
+
+                        _obj.css( {
+                            'opacity': 0,
+                            'visibility': 'hidden'
+                        } );
+
+                        setTimeout(function () {
+                            //_obj.remove();
+                        }, 650);
+
+                        _flag = true
+
+                    }
+                }, 500);
+
+
             };
 
         _init();
