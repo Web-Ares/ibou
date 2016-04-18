@@ -47,6 +47,18 @@
             -webkit-animation: flip 3s infinite;
             animation: flip 3s infinite;
         }
+        .preloader__bar {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 6px;
+            background: #fff;
+            -webkit-transition: opacity .3s ease-in-out;
+            transition: opacity .3s ease-in-out;
+        }
+        .preloader.hide .preloader__bar {
+            opacity: 0;
+        }
         @-webkit-keyframes flip {
             0% {
                 -webkit-transform: rotateY(0deg);
@@ -144,8 +156,13 @@
                             c0-52.351,42.434-94.792,94.758-94.792c52.338,0,94.781,42.441,94.781,94.792C476.366,212.503,433.923,254.945,381.585,254.945"/>
                 </svg>
 
+
             </div>
             <!--/preloader__wrap-->
+
+            <!--preloader__bar-->
+            <div class="preloader__bar"></div>
+            <!--/preloader__bar-->
 
         </div>
         <!--/preloader-->
