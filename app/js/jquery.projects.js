@@ -6,9 +6,9 @@ $(function () {
 
     } );
 
-});
+} );
 
-var Filter = function ( obj )   {
+var Filter = function ( obj ) {
 
     //private properties
     var _self = this,
@@ -67,3 +67,4 @@ var Filter = function ( obj )   {
 
     _init();
 };
+

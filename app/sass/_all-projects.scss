@@ -44,6 +44,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
+    &:hover{
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: url(resources.svg#desaturate);
+      filter: gray;
+      -webkit-filter: grayscale(1);
+    }
   }
 
   &__text {
